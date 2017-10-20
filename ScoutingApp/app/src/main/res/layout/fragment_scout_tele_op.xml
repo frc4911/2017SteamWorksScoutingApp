@@ -1,0 +1,276 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="16dp"
+    android:background="#ccf9b8"
+    android:fillViewport="true">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context="org.usfirst.frc.team4911.scouting.ScoutTeleOpFragment">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/header_teleop"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:layout_marginBottom="10dp"/>
+
+        <!--Teleop gear attempt stuff-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/header_gear_attempt"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+            <CheckBox
+                android:id="@+id/checkbox_scout_teleop_no_gears"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                android:checked="true"
+                android:text="No Gear attempts"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/label_gears_attempted_teleop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+            android:text="@string/label_attempts_recorded"/>
+
+        <org.usfirst.frc.team4911.scouting.ui.GearAttemptTeleOpView
+            android:id="@+id/gear_attempt_teleop_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/button_scout_tele_op_save_gear_attempt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFD700"
+            android:text="@string/button_label_save" />
+
+        <FrameLayout
+            android:id="@+id/fragment_container_tele_op_gear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <!--End teleop gear attempt stuff-->
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <!--TeleOp shot attempt stuff-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/header_shot_attempt"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+            <CheckBox
+                android:id="@+id/checkbox_scout_teleop_no_shots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                android:checked="true"
+                android:text="No Shot attempts"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/label_shots_attempted_teleop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+            android:text="@string/label_attempts_recorded"/>
+
+        <FrameLayout
+            android:id="@+id/fragment_container_tele_op_shooting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <!--End teleop shot attempt stuff-->
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ToggleButton
+                android:id="@+id/togglebutton_teleop_damaged_bot"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textOff="BOT DAMAGED"
+                android:textOn="BOT DAMAGED [X]"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <ToggleButton
+                android:id="@+id/togglebutton_teleop_disconnected"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textOff="DISCONNECTED"
+                android:textOn="DISCONNECTED [X]"
+                android:layout_weight="1"/>
+
+            <ToggleButton
+                android:id="@+id/togglebutton_teleop_dead_bot"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textOff="DEAD BOT"
+                android:textOn="DEAD BOT [X]"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Driving Speed"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                android:layout_gravity="center_vertical"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:checkedButton="@+id/radio_driving_speed_none"
+                android:layout_weight="1">
+
+                <RadioButton
+                    android:id="@+id/radio_driving_speed_slow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                    android:text="SLOW"/>
+
+                <RadioButton
+                    android:id="@+id/radio_driving_speed_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                    android:text="MEDIUM"/>
+                <RadioButton
+                    android:id="@+id/radio_driving_speed_fast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                    android:text="FAST"/>
+
+                <RadioButton
+                    android:id="@+id/radio_driving_speed_none"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                    android:text="NONE"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Defence"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                android:layout_gravity="center_vertical"/>
+
+            <RadioGroup
+                android:id="@+id/radio_group_defence_rating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:checkedButton="@+id/radio_defence_rating_none">
+
+                <RadioButton
+                    android:id="@+id/radio_defence_rating_poor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                    android:text="POOR"/>
+
+                <RadioButton
+                    android:id="@+id/radio_defence_rating_fair"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                    android:text="FAIR"/>
+                <RadioButton
+                    android:id="@+id/radio_defence_rating_good"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                    android:text="GOOD"/>
+
+                <RadioButton
+                    android:id="@+id/radio_defence_rating_none"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                    android:text="N/A"/>
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <Button
+            android:id="@+id/button_tele_op_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#32CD32"
+            android:text="@string/button_label_save_teleop" />
+    </LinearLayout>
+</ScrollView>

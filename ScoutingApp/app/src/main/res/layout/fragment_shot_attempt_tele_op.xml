@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="@dimen/activity_vertical_margin"
+    android:layout_marginRight="@dimen/activity_vertical_margin"
+    tools:context="org.usfirst.frc.team4911.scouting.ShotAttemptTeleOpFragment">
+
+    <CheckBox
+        android:id="@+id/checkbox_shot_attempt_teleop_defended"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:text="WAS DEFENDED"/>
+
+    <!--This is the fragmentcontainer for the shooting event collection fragment-->
+    <FrameLayout
+        android:id="@+id/fragment_container_shot_attempt_teleop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

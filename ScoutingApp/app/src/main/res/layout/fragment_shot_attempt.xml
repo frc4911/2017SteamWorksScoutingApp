@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="fill"
+    android:layout_gravity="fill"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/activity_vertical_margin"
+    android:layout_marginRight="@dimen/activity_vertical_margin"
+    tools:context="org.usfirst.frc.team4911.scouting.ShotAttemptFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+            android:text="Shots scored: " />
+
+        <EditText
+            android:id="@+id/edit_text_shots_scored"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+            android:hint="@string/string_no_shot_attempt"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ToggleButton
+            android:id="@+id/togglebutton_shot_low"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textOn="LOW [X]"
+            android:textOff="LOW"
+            android:layout_weight="1"/>
+
+        <ToggleButton
+            android:id="@+id/togglebutton_shot_high"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textOn="HIGH [X]"
+            android:textOff="HIGH"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_shot_attempt_save"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_label_save"
+            android:layout_weight="1"
+            android:backgroundTint="#FFD700" />
+
+        <Button
+            android:id="@+id/button_shot_attempt_clear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_label_clear"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>

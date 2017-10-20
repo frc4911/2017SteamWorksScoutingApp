@@ -1,0 +1,75 @@
+<resources>
+    <string name="app_name">ScoutingApp</string>
+    <string name="title_activity_scout_match">ScoutMatchActivity</string>
+
+    <string name="button_label_location">Location</string>
+    <string name="button_label_save">Save</string>
+    <string name="button_label_save_auto">Save auto data</string>
+    <string name="button_label_save_teleop">Save teleop data</string>
+    <string name="button_label_start">Start</string>
+    <string name="button_label_record_gear_attempt">Record Gear Attempt</string>
+    <string name="button_label_record_climb_attempt">Record Climb Attempt</string>
+    <string name="button_label_clear">Clear</string>
+
+    <string name="header_autonomous">Autonomous</string>
+    <string name="header_end_game">End-Game</string>
+    <string name="header_gear_attempt">Gear Attempts</string>
+    <string name="header_hopper_attempt">Hopper Attempts</string>
+    <string name="header_pit">Pit</string>
+    <string name="header_pre_game">Pre-Game Setup</string>
+    <string name="header_shot_attempt">Shot Attempts</string>
+    <string name="header_teleop">TeleOp</string>
+
+    <string name="label_attempts_recorded">Attempts recorded: </string>
+    <string name="label_crossed_baseline">Crossed baseline</string>
+    <string name="label_location">Location: </string>
+    <string name="label_played_defence">Played defence</string>
+    <string name="label_shots_made">Shots made</string>
+    <string name="label_shots_missed">Shots missed</string>
+    <string name="label_shot_mode">Shot mode: </string>
+    <string name="label_success">Success</string>
+
+    <string name="string_no_shot_attempt">No attempt</string>
+
+    <!--Array setup parameters used by the settings activity-->
+    <string-array name="drive_stations_array">
+        <item>Blue1</item>
+        <item>Blue2</item>
+        <item>Blue3</item>
+        <item>Red1</item>
+        <item>Red2</item>
+        <item>Red3</item>
+    </string-array>
+
+    <string-array name="pnw_events_array">
+        <item>Carver Subdivision</item>
+        <item>Newton Subdivision</item>
+        <item>Galileo Subdivision</item>
+        <item>Hopper Subdivision</item>
+        <item>Roebling Subdivision</item>
+        <item>Turing Subdivision</item>
+        <item>PNW District Championship</item>
+        <item>Practice</item>
+    </string-array>
+
+    <string-array name="pnw_eventcodes_array">
+        <item>carver</item>
+        <item>newton</item>
+        <item>galileo</item>
+        <item>hopper</item>
+        <item>roebling</item>
+        <item>turing</item>
+        <item>pncmp</item>
+        <item>practice</item>
+    </string-array>
+
+    <string-array name="scoutteams_array">
+        <item>CyberKnights</item>
+        <item>CPR</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

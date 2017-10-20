@@ -1,0 +1,102 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        tools:context="org.usfirst.frc.team4911.scouting.PreGameFragment" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set-Up"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MATCH INFORMATION"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:stretchColumns="1">
+            <TableRow
+                android:paddingTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MATCH :"
+                    android:textAppearance="@style/SpinnerLook"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:id="@+id/etxt_pre_game_match_num"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="1" />
+            </TableRow>
+            <TableRow
+                android:paddingTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TEAM :"
+                    android:textAppearance="@style/SpinnerLook"
+                    android:layout_gravity="center_vertical" />
+
+                <org.usfirst.frc.team4911.scouting.ui.TeamSpinnerView
+                    android:id="@+id/team_spinner_pre_game"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton_pre_game_no_show"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textOn="NO-SHOW [X]"
+                android:textOff="NO-SHOW"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+            <Button
+                android:id="@+id/btn_pre_game_start_game"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="START MATCH"
+                android:backgroundTint="#32CD32" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+

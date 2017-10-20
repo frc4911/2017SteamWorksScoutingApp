@@ -1,0 +1,1894 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ScoutingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Districts">
+          <Key>
+            <PropertyRef Name="Season" />
+            <PropertyRef Name="DistrictCode" />
+          </Key>
+          <Property Name="Season" Type="int" Nullable="false" />
+          <Property Name="DistrictCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventMatchResults">
+          <Key>
+            <PropertyRef Name="Season" />
+            <PropertyRef Name="EventCode" />
+            <PropertyRef Name="TournamentLevel" />
+            <PropertyRef Name="MatchNumber" />
+          </Key>
+          <Property Name="Season" Type="int" Nullable="false" />
+          <Property Name="EventCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TournamentLevel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MatchNumber" Type="int" Nullable="false" />
+          <Property Name="ActualStartTime" Type="datetime" Nullable="false" />
+          <Property Name="PostResultTime" Type="datetime" Nullable="false" />
+          <Property Name="ScoreRedFinal" Type="int" Nullable="false" />
+          <Property Name="ScoreRedFoul" Type="int" Nullable="false" />
+          <Property Name="ScoreRedAuto" Type="int" Nullable="false" />
+          <Property Name="ScoreBlueFinal" Type="int" Nullable="false" />
+          <Property Name="ScoreBlueFoul" Type="int" Nullable="false" />
+          <Property Name="ScoreBlueAuto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventMatchScores2017">
+          <Key>
+            <PropertyRef Name="EventCode" />
+            <PropertyRef Name="TournamentLevel" />
+            <PropertyRef Name="MatchNumber" />
+          </Key>
+          <Property Name="EventCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TournamentLevel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MatchNumber" Type="int" Nullable="false" />
+          <Property Name="Alliance" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Robot1Auto" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Robot2Auto" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Robot3Auto" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AutoFuelLow" Type="int" Nullable="false" />
+          <Property Name="AutoFuelHigh" Type="int" Nullable="false" />
+          <Property Name="Rotor1Auto" Type="bit" Nullable="false" />
+          <Property Name="Rotor2Auto" Type="bit" Nullable="false" />
+          <Property Name="Rotor1Engaged" Type="bit" Nullable="false" />
+          <Property Name="Rotor2Engaged" Type="bit" Nullable="false" />
+          <Property Name="Rotor3Engaged" Type="bit" Nullable="false" />
+          <Property Name="Rotor4Engaged" Type="bit" Nullable="false" />
+          <Property Name="TeleopFuelLow" Type="int" Nullable="false" />
+          <Property Name="TeleopFuelHigh" Type="int" Nullable="false" />
+          <Property Name="TouchpadNear" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TouchpadMiddle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TouchpadFar" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KiloPaRankingPointAchieved" Type="bit" Nullable="false" />
+          <Property Name="RotorRankingPointAchieved" Type="bit" Nullable="false" />
+          <Property Name="FoulCount" Type="int" Nullable="false" />
+          <Property Name="TechFoulCount" Type="int" Nullable="false" />
+          <Property Name="AutoPoints" Type="int" Nullable="false" />
+          <Property Name="AutoMobilityPoints" Type="int" Nullable="false" />
+          <Property Name="AutoRotorPoints" Type="int" Nullable="false" />
+          <Property Name="AutoFuelPoints" Type="int" Nullable="false" />
+          <Property Name="TeleopPoints" Type="int" Nullable="false" />
+          <Property Name="TeleopRotorPoints" Type="int" Nullable="false" />
+          <Property Name="TeleopFuelPoints" Type="int" Nullable="false" />
+          <Property Name="TeleopTakeoffPoints" Type="int" Nullable="false" />
+          <Property Name="KilokPaBonusPoints" Type="int" Nullable="false" />
+          <Property Name="RotorBonusPoints" Type="int" Nullable="false" />
+          <Property Name="AdjustPoints" Type="int" Nullable="false" />
+          <Property Name="FoulPoints" Type="int" Nullable="false" />
+          <Property Name="TotalPoints" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventMatchTeams">
+          <Key>
+            <PropertyRef Name="Season" />
+            <PropertyRef Name="EventCode" />
+            <PropertyRef Name="MatchNumber" />
+            <PropertyRef Name="TeamNumber" />
+          </Key>
+          <Property Name="Season" Type="int" Nullable="false" />
+          <Property Name="EventCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MatchNumber" Type="int" Nullable="false" />
+          <Property Name="TeamNumber" Type="int" Nullable="false" />
+          <Property Name="Station" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dq" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventRankings">
+          <Key>
+            <PropertyRef Name="Season" />
+            <PropertyRef Name="EventCode" />
+            <PropertyRef Name="TeamNumber" />
+          </Key>
+          <Property Name="Season" Type="int" Nullable="false" />
+          <Property Name="EventCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TeamNumber" Type="int" Nullable="false" />
+          <Property Name="DqCount" Type="int" Nullable="false" />
+          <Property Name="MatchesPlayed" Type="int" Nullable="false" />
+          <Property Name="QualAverage" Type="float" Nullable="false" />
+          <Property Name="Rank" Type="int" Nullable="false" />
+          <Property Name="Wins" Type="int" Nullable="false" />
+          <Property Name="Losses" Type="int" Nullable="false" />
+          <Property Name="Ties" Type="int" Nullable="false" />
+          <Property Name="SortOrder1" Type="float" Nullable="false" />
+          <Property Name="SortOrder2" Type="float" Nullable="false" />
+          <Property Name="SortOrder3" Type="float" Nullable="false" />
+          <Property Name="SortOrder4" Type="float" Nullable="false" />
+          <Property Name="SortOrder5" Type="float" Nullable="false" />
+          <Property Name="SortOrder6" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="Season" />
+            <PropertyRef Name="EventCode" />
+          </Key>
+          <Property Name="Season" Type="int" Nullable="false" />
+          <Property Name="EventCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DistrictCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DivisionCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Venue" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="128" />
+          <Property Name="StateProv" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TimeZone" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateStart" Type="datetime" Nullable="false" />
+          <Property Name="DateEnd" Type="datetime" Nullable="false" />
+          <Property Name="WebSite" Type="nvarchar" MaxLength="2048" />
+        </EntityType>
+        <EntityType Name="Registrations">
+          <Key>
+            <PropertyRef Name="Season" />
+            <PropertyRef Name="TeamNumber" />
+            <PropertyRef Name="EventCode" />
+          </Key>
+          <Property Name="Season" Type="int" Nullable="false" />
+          <Property Name="TeamNumber" Type="int" Nullable="false" />
+          <Property Name="EventCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScoutDataHopperAttempts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScoutingDataId" Type="int" Nullable="false" />
+          <Property Name="AutonomousMode" Type="tinyint" Nullable="false" />
+          <Property Name="Activated" Type="tinyint" Nullable="false" />
+          <Property Name="HopperLocation" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScoutingDataAutonomous">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScoutingDataId" Type="int" Nullable="false" />
+          <Property Name="AutoMobilityPoints" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScoutingDataEndGame">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScoutingDataId" Type="int" Nullable="false" />
+          <Property Name="ClimbingAttempted" Type="tinyint" Nullable="false" />
+          <Property Name="ClimbingSucceeded" Type="tinyint" Nullable="false" />
+          <Property Name="ClimbingTimeInSeconds" Type="int" />
+          <Property Name="ClimbingTouchPadPosition" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ScoutingDataFileLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="File" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="Md5Hash" Type="binary" MaxLength="16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScoutingDataGearAttempts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScoutingDataId" Type="int" Nullable="false" />
+          <Property Name="AutonomousMode" Type="tinyint" Nullable="false" />
+          <Property Name="GearResult" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GearPegPosition" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WasDefended" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="ScoutingDataMatches">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeviceId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Season" Type="int" Nullable="false" />
+          <Property Name="EventCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MatchNumber" Type="int" Nullable="false" />
+          <Property Name="TeamNumber" Type="int" Nullable="false" />
+          <Property Name="MatchLevel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Station" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ScoutName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ScoutingTeam" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScoutingDataPreGame">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScoutingDataId" Type="int" Nullable="false" />
+          <Property Name="PreGameHasGear" Type="tinyint" Nullable="false" />
+          <Property Name="PreGameHasFuel" Type="tinyint" Nullable="false" />
+          <Property Name="PreGameHasPilot" Type="tinyint" Nullable="false" />
+          <Property Name="PreGameUsesOwnRope" Type="tinyint" Nullable="false" />
+          <Property Name="PreGameRopeTouchPadPosition" Type="nvarchar" MaxLength="50" />
+          <Property Name="PreGameRobotPosition" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScoutingDataQualitative">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScoutingDataId" Type="int" Nullable="false" />
+          <Property Name="DeadBot" Type="tinyint" Nullable="false" />
+          <Property Name="NoShow" Type="tinyint" Nullable="false" />
+          <Property Name="Veers" Type="tinyint" />
+          <Property Name="HitsPartner" Type="tinyint" />
+          <Property Name="Stuck" Type="tinyint" />
+          <Property Name="WrongWay" Type="tinyint" />
+          <Property Name="FoulCount" Type="int" Nullable="false" />
+          <Property Name="AutoTargeting" Type="tinyint" />
+          <Property Name="BallCapacity" Type="nvarchar" MaxLength="50" />
+          <Property Name="DrivingDriverTrainType" Type="tinyint" />
+          <Property Name="DrivingSpeed" Type="tinyint" />
+          <Property Name="DrivingIsReckless" Type="tinyint" />
+          <Property Name="DrivingIsAimless" Type="tinyint" />
+          <Property Name="DrivingDrivesIntoPartner" Type="tinyint" />
+          <Property Name="BallPickupSpeed" Type="nvarchar" MaxLength="50" />
+          <Property Name="BallPickupCanPickUpOffGroud" Type="tinyint" />
+          <Property Name="BallPickupFeederAbility" Type="nvarchar" MaxLength="50" />
+          <Property Name="GearPlacementSpeed" Type="nvarchar" MaxLength="50" />
+          <Property Name="GearPlacementAccuracy" Type="nvarchar" MaxLength="50" />
+          <Property Name="GearPlacementCanPickupOffFloor" Type="tinyint" />
+          <Property Name="DefenseAsTargetedBumper" Type="nvarchar" MaxLength="50" />
+          <Property Name="DefenseAsCrasher" Type="nvarchar" MaxLength="50" />
+          <Property Name="DefenseSpeed" Type="nvarchar" MaxLength="50" />
+          <Property Name="DefenseIsRisky" Type="tinyint" />
+          <Property Name="DefenseGoesInForbiddenAreas" Type="tinyint" />
+          <Property Name="SmartnessIsPurposeful" Type="tinyint" />
+          <Property Name="SmartnessIsConfused" Type="tinyint" />
+          <Property Name="SmartnessIsAimless" Type="tinyint" />
+          <Property Name="SmartnessIsHelpful" Type="tinyint" />
+          <Property Name="SmartnessWorksAgainstAlliance" Type="tinyint" />
+          <Property Name="SmartnessIsDangerous" Type="tinyint" />
+          <Property Name="SmartnessIsReckless" Type="tinyint" />
+          <Property Name="SmartnessGetsInWayOfPartners" Type="tinyint" />
+          <Property Name="PilotOneFromTeam" Type="int" Nullable="false" />
+          <Property Name="PilotTwoFromTeam" Type="int" />
+          <Property Name="PilotGearRetrievalSpeed" Type="nvarchar" MaxLength="50" />
+          <Property Name="PilotGearPlacementSpeed" Type="nvarchar" MaxLength="50" />
+          <Property Name="PilotFailedToTurnCrank" Type="tinyint" />
+          <Property Name="PilotDropsRopeInTimelyManner" Type="tinyint" />
+          <Property Name="PilotIsHelpfulWithSpottingToDrivers" Type="tinyint" />
+          <Property Name="HumanPlayerFromTeam" Type="int" Nullable="false" />
+          <Property Name="HumanPlayerMadeMistakeDeliveringGear" Type="tinyint" />
+          <Property Name="HumanPlayerMadeMistakeDeliveringFuel" Type="tinyint" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="2048" />
+        </EntityType>
+        <EntityType Name="ScoutingDataShotAttempts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScoutingDataId" Type="int" Nullable="false" />
+          <Property Name="AutonomousMode" Type="tinyint" Nullable="false" />
+          <Property Name="ShotAttempt" Type="int" Nullable="false" />
+          <Property Name="ShotsMade" Type="int" Nullable="false" />
+          <Property Name="ShotsMissed" Type="int" Nullable="false" />
+          <Property Name="ShotDuration" Type="int" Nullable="false" />
+          <Property Name="ShotLocation" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WasDefended" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="ScoutingDataTeleop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScoutingDataId" Type="int" Nullable="false" />
+          <Property Name="TeleopPlayedDefense" Type="tinyint" />
+          <Property Name="GearAttemptCount" Type="int" />
+          <Property Name="ShotAttemptCount" Type="int" />
+        </EntityType>
+        <EntityType Name="Teams">
+          <Key>
+            <PropertyRef Name="TeamNumber" />
+          </Key>
+          <Property Name="TeamNumber" Type="int" Nullable="false" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StateProv" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DistrictCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RookieYear" Type="int" Nullable="false" />
+          <Property Name="RobotName" Type="nvarchar" MaxLength="128" />
+          <Property Name="WebSite" Type="nvarchar" MaxLength="2048" />
+          <Property Name="SchoolName" Type="nvarchar" MaxLength="128" />
+          <Property Name="HomeCMP" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_ScoutDataHopperAttempts_To_ScoutingDataMatches">
+          <End Role="ScoutingDataMatches" Type="Self.ScoutingDataMatches" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ScoutDataHopperAttempts" Type="Self.ScoutDataHopperAttempts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoutingDataMatches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScoutDataHopperAttempts">
+              <PropertyRef Name="ScoutingDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoutingDataAutonomous_ScoutingDataMatches">
+          <End Role="ScoutingDataMatches" Type="Self.ScoutingDataMatches" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ScoutingDataAutonomous" Type="Self.ScoutingDataAutonomous" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoutingDataMatches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScoutingDataAutonomous">
+              <PropertyRef Name="ScoutingDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoutingDataEndGame_To_ScoutingDataMatches">
+          <End Role="ScoutingDataMatches" Type="Self.ScoutingDataMatches" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ScoutingDataEndGame" Type="Self.ScoutingDataEndGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoutingDataMatches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScoutingDataEndGame">
+              <PropertyRef Name="ScoutingDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoutingDataGearAttempts_To_ScoutingDataMatches">
+          <End Role="ScoutingDataMatches" Type="Self.ScoutingDataMatches" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ScoutingDataGearAttempts" Type="Self.ScoutingDataGearAttempts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoutingDataMatches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScoutingDataGearAttempts">
+              <PropertyRef Name="ScoutingDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoutingDataPreGame_To_ScoutingDataMatches">
+          <End Role="ScoutingDataMatches" Type="Self.ScoutingDataMatches" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ScoutingDataPreGame" Type="Self.ScoutingDataPreGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoutingDataMatches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScoutingDataPreGame">
+              <PropertyRef Name="ScoutingDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoutingDataQualitative_To_ScoutingDataMatches">
+          <End Role="ScoutingDataMatches" Type="Self.ScoutingDataMatches" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ScoutingDataQualitative" Type="Self.ScoutingDataQualitative" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoutingDataMatches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScoutingDataQualitative">
+              <PropertyRef Name="ScoutingDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoutingDataShotAttempts_To_ScoutingDataMatches">
+          <End Role="ScoutingDataMatches" Type="Self.ScoutingDataMatches" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ScoutingDataShotAttempts" Type="Self.ScoutingDataShotAttempts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoutingDataMatches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScoutingDataShotAttempts">
+              <PropertyRef Name="ScoutingDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoutingDataTeleop_To_ScoutingDataMatches">
+          <End Role="ScoutingDataMatches" Type="Self.ScoutingDataMatches" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ScoutingDataTeleop" Type="Self.ScoutingDataTeleop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoutingDataMatches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScoutingDataTeleop">
+              <PropertyRef Name="ScoutingDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Delete_District" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="DistrictCode" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Delete_Event" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="EventCode" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Delete_EventMatchResult" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="EventCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="TournamentLevel" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="MatchNumber" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Delete_EventMatchScore2017" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EventCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="TournamentLevel" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="MatchNumber" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Delete_EventMatchTeam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="EventCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="MatchNumber" Type="int" Mode="In" />
+          <Parameter Name="TeamNumber" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Delete_EventRanking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="EventCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="TeamNumber" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Delete_Registration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="TeamNumber" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Delete_Team" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TeamNumber" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Insert_District" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="DistrictCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Insert_Event" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="EventCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="DistrictCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="DivisionCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Type" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Venue" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="City" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Country" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="StateProv" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="DateStart" Type="datetime" Mode="In" />
+          <Parameter Name="DateEnd" Type="datetime" Mode="In" />
+          <Parameter Name="WebSite" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Insert_EventMatchScore2017" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EventCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="TournamentLevel" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="MatchNumber" Type="int" Mode="In" />
+          <Parameter Name="Alliance" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Robot1Auto" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Robot2Auto" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Robot3Auto" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="AutoFuelLow" Type="int" Mode="In" />
+          <Parameter Name="AutoFuelHigh" Type="int" Mode="In" />
+          <Parameter Name="Rotor1Auto" Type="bit" Mode="In" />
+          <Parameter Name="Rotor2Auto" Type="bit" Mode="In" />
+          <Parameter Name="Rotor1Engaged" Type="bit" Mode="In" />
+          <Parameter Name="Rotor2Engaged" Type="bit" Mode="In" />
+          <Parameter Name="Rotor3Engaged" Type="bit" Mode="In" />
+          <Parameter Name="Rotor4Engaged" Type="bit" Mode="In" />
+          <Parameter Name="TeleopFuelLow" Type="int" Mode="In" />
+          <Parameter Name="TeleopFuelHigh" Type="int" Mode="In" />
+          <Parameter Name="TouchpadNear" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="TouchpadMiddle" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="TouchpadFar" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="KiloPaRankingPointAchieved" Type="bit" Mode="In" />
+          <Parameter Name="RotorRankingPointAchieved" Type="bit" Mode="In" />
+          <Parameter Name="FoulCount" Type="int" Mode="In" />
+          <Parameter Name="TechFoulCount" Type="int" Mode="In" />
+          <Parameter Name="AutoPoints" Type="int" Mode="In" />
+          <Parameter Name="AutoMobilityPoints" Type="int" Mode="In" />
+          <Parameter Name="AutoRotorPoints" Type="int" Mode="In" />
+          <Parameter Name="AutoFuelPoints" Type="int" Mode="In" />
+          <Parameter Name="TeleopPoints" Type="int" Mode="In" />
+          <Parameter Name="TeleopRotorPoints" Type="int" Mode="In" />
+          <Parameter Name="TeleopFuelPoints" Type="int" Mode="In" />
+          <Parameter Name="TeleopTakeoffPoints" Type="int" Mode="In" />
+          <Parameter Name="KilokPaBonusPoints" Type="int" Mode="In" />
+          <Parameter Name="RotorBonusPoints" Type="int" Mode="In" />
+          <Parameter Name="AdjustPoints" Type="int" Mode="In" />
+          <Parameter Name="FoulPoints" Type="int" Mode="In" />
+          <Parameter Name="TotalPoints" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Insert_EventMatchTeam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="EventCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="MatchNumber" Type="int" Mode="In" />
+          <Parameter Name="TeamNumber" Type="int" Mode="In" />
+          <Parameter Name="Station" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Dq" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="Insert_EventRanking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="EventCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="TeamNumber" Type="int" Mode="In" />
+          <Parameter Name="DqCount" Type="int" Mode="In" />
+          <Parameter Name="MatchesPlayed" Type="int" Mode="In" />
+          <Parameter Name="QualAverage" Type="float" Mode="In" />
+          <Parameter Name="Rank" Type="int" Mode="In" />
+          <Parameter Name="Wins" Type="int" Mode="In" />
+          <Parameter Name="Losses" Type="int" Mode="In" />
+          <Parameter Name="Ties" Type="int" Mode="In" />
+          <Parameter Name="SortOrder1" Type="float" Mode="In" />
+          <Parameter Name="SortOrder2" Type="float" Mode="In" />
+          <Parameter Name="SortOrder3" Type="float" Mode="In" />
+          <Parameter Name="SortOrder4" Type="float" Mode="In" />
+          <Parameter Name="SortOrder5" Type="float" Mode="In" />
+          <Parameter Name="SortOrder6" Type="float" Mode="In" />
+        </Function>
+        <Function Name="Insert_MatchEventResult" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="EventCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="ActualStartTime" Type="datetime" Mode="In" />
+          <Parameter Name="TournamentLevel" Type="nvarchar" Mode="In" />
+          <Parameter Name="MatchNumber" Type="int" Mode="In" />
+          <Parameter Name="PostResultTime" Type="datetime" Mode="In" />
+          <Parameter Name="ScoreRedFinal" Type="int" Mode="In" />
+          <Parameter Name="ScoreRedFoul" Type="int" Mode="In" />
+          <Parameter Name="ScoreRedAuto" Type="int" Mode="In" />
+          <Parameter Name="ScoreBlueFinal" Type="int" Mode="In" />
+          <Parameter Name="ScoreBlueFoul" Type="int" Mode="In" />
+          <Parameter Name="ScoreBlueAuto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Insert_Registration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="TeamNumber" Type="int" Mode="In" />
+          <Parameter Name="EventCode" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Insert_Team" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TeamNumber" Type="int" Mode="In" />
+          <Parameter Name="ShortName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="FullName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="City" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="StateProv" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Country" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="DistrictCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="RookieYear" Type="int" Mode="In" />
+          <Parameter Name="RobotName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="WebSite" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="SchoolName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="HomeCMP" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Update_District" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="DistrictCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Update_Event" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="EventCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="DistrictCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="DivisionCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Type" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Venue" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="City" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Country" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="StateProv" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="DateStart" Type="datetime" Mode="In" />
+          <Parameter Name="DateEnd" Type="datetime" Mode="In" />
+          <Parameter Name="WebSite" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Update_EventMatchResult" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="EventCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ActualStartTime" Type="datetime" Mode="In" />
+          <Parameter Name="TournamentLevel" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="MatchNumber" Type="int" Mode="In" />
+          <Parameter Name="PostResultTime" Type="datetime" Mode="In" />
+          <Parameter Name="ScoreRedFinal" Type="int" Mode="In" />
+          <Parameter Name="ScoreRedFoul" Type="int" Mode="In" />
+          <Parameter Name="ScoreRedAuto" Type="int" Mode="In" />
+          <Parameter Name="ScoreBlueFinal" Type="int" Mode="In" />
+          <Parameter Name="ScoreBlueFoul" Type="int" Mode="In" />
+          <Parameter Name="ScoreBlueAuto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Update_EventMatchScore2017" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EventCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="TournamentLevel" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="MatchNumber" Type="int" Mode="In" />
+          <Parameter Name="Alliance" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Robot1Auto" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Robot2Auto" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Robot3Auto" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="AutoFuelLow" Type="int" Mode="In" />
+          <Parameter Name="AutoFuelHigh" Type="int" Mode="In" />
+          <Parameter Name="Rotor1Auto" Type="bit" Mode="In" />
+          <Parameter Name="Rotor2Auto" Type="bit" Mode="In" />
+          <Parameter Name="Rotor1Engaged" Type="bit" Mode="In" />
+          <Parameter Name="Rotor2Engaged" Type="bit" Mode="In" />
+          <Parameter Name="Rotor3Engaged" Type="bit" Mode="In" />
+          <Parameter Name="Rotor4Engaged" Type="bit" Mode="In" />
+          <Parameter Name="TeleopFuelLow" Type="int" Mode="In" />
+          <Parameter Name="TeleopFuelHigh" Type="int" Mode="In" />
+          <Parameter Name="TouchpadNear" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="TouchpadMiddle" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="TouchpadFar" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="KiloPaRankingPointAchieved" Type="bit" Mode="In" />
+          <Parameter Name="RotorRankingPointAchieved" Type="bit" Mode="In" />
+          <Parameter Name="FoulCount" Type="int" Mode="In" />
+          <Parameter Name="TechFoulCount" Type="int" Mode="In" />
+          <Parameter Name="AutoPoints" Type="int" Mode="In" />
+          <Parameter Name="AutoMobilityPoints" Type="int" Mode="In" />
+          <Parameter Name="AutoRotorPoints" Type="int" Mode="In" />
+          <Parameter Name="AutoFuelPoints" Type="int" Mode="In" />
+          <Parameter Name="TeleopPoints" Type="int" Mode="In" />
+          <Parameter Name="TeleopRotorPoints" Type="int" Mode="In" />
+          <Parameter Name="TeleopFuelPoints" Type="int" Mode="In" />
+          <Parameter Name="TeleopTakeoffPoints" Type="int" Mode="In" />
+          <Parameter Name="KilokPaBonusPoints" Type="int" Mode="In" />
+          <Parameter Name="RotorBonusPoints" Type="int" Mode="In" />
+          <Parameter Name="AdjustPoints" Type="int" Mode="In" />
+          <Parameter Name="FoulPoints" Type="int" Mode="In" />
+          <Parameter Name="TotalPoints" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Update_EventMatchTeam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="EventCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="MatchNumber" Type="int" Mode="In" />
+          <Parameter Name="TeamNumber" Type="int" Mode="In" />
+          <Parameter Name="Station" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Dq" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="Update_EventRanking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="EventCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="TeamNumber" Type="int" Mode="In" />
+          <Parameter Name="DqCount" Type="int" Mode="In" />
+          <Parameter Name="MatchesPlayed" Type="int" Mode="In" />
+          <Parameter Name="QualAverage" Type="float" Mode="In" />
+          <Parameter Name="Rank" Type="int" Mode="In" />
+          <Parameter Name="Wins" Type="int" Mode="In" />
+          <Parameter Name="Losses" Type="int" Mode="In" />
+          <Parameter Name="Ties" Type="int" Mode="In" />
+          <Parameter Name="SortOrder1" Type="float" Mode="In" />
+          <Parameter Name="SortOrder2" Type="float" Mode="In" />
+          <Parameter Name="SortOrder3" Type="float" Mode="In" />
+          <Parameter Name="SortOrder4" Type="float" Mode="In" />
+          <Parameter Name="SortOrder5" Type="float" Mode="In" />
+          <Parameter Name="SortOrder6" Type="float" Mode="In" />
+        </Function>
+        <Function Name="Update_Registration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Season" Type="int" Mode="In" />
+          <Parameter Name="TeamNumber" Type="int" Mode="In" />
+          <Parameter Name="EventCode" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Update_Team" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TeamNumber" Type="int" Mode="In" />
+          <Parameter Name="ShortName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="FullName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="City" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="StateProv" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Country" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="DistrictCode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="RookieYear" Type="int" Mode="In" />
+          <Parameter Name="RobotName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="WebSite" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="SchoolName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="HomeCMP" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="ScoutingModelStoreContainer">
+          <EntitySet Name="Districts" EntityType="Self.Districts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventMatchResults" EntityType="Self.EventMatchResults" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventMatchScores2017" EntityType="Self.EventMatchScores2017" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventMatchTeams" EntityType="Self.EventMatchTeams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventRankings" EntityType="Self.EventRankings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Registrations" EntityType="Self.Registrations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScoutDataHopperAttempts" EntityType="Self.ScoutDataHopperAttempts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScoutingDataAutonomous" EntityType="Self.ScoutingDataAutonomous" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScoutingDataEndGame" EntityType="Self.ScoutingDataEndGame" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScoutingDataFileLog" EntityType="Self.ScoutingDataFileLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScoutingDataGearAttempts" EntityType="Self.ScoutingDataGearAttempts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScoutingDataMatches" EntityType="Self.ScoutingDataMatches" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScoutingDataPreGame" EntityType="Self.ScoutingDataPreGame" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScoutingDataQualitative" EntityType="Self.ScoutingDataQualitative" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScoutingDataShotAttempts" EntityType="Self.ScoutingDataShotAttempts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScoutingDataTeleop" EntityType="Self.ScoutingDataTeleop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ScoutDataHopperAttempts_To_ScoutingDataMatches" Association="Self.FK_ScoutDataHopperAttempts_To_ScoutingDataMatches">
+            <End Role="ScoutingDataMatches" EntitySet="ScoutingDataMatches" />
+            <End Role="ScoutDataHopperAttempts" EntitySet="ScoutDataHopperAttempts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoutingDataAutonomous_ScoutingDataMatches" Association="Self.FK_ScoutingDataAutonomous_ScoutingDataMatches">
+            <End Role="ScoutingDataMatches" EntitySet="ScoutingDataMatches" />
+            <End Role="ScoutingDataAutonomous" EntitySet="ScoutingDataAutonomous" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoutingDataEndGame_To_ScoutingDataMatches" Association="Self.FK_ScoutingDataEndGame_To_ScoutingDataMatches">
+            <End Role="ScoutingDataMatches" EntitySet="ScoutingDataMatches" />
+            <End Role="ScoutingDataEndGame" EntitySet="ScoutingDataEndGame" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoutingDataGearAttempts_To_ScoutingDataMatches" Association="Self.FK_ScoutingDataGearAttempts_To_ScoutingDataMatches">
+            <End Role="ScoutingDataMatches" EntitySet="ScoutingDataMatches" />
+            <End Role="ScoutingDataGearAttempts" EntitySet="ScoutingDataGearAttempts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoutingDataPreGame_To_ScoutingDataMatches" Association="Self.FK_ScoutingDataPreGame_To_ScoutingDataMatches">
+            <End Role="ScoutingDataMatches" EntitySet="ScoutingDataMatches" />
+            <End Role="ScoutingDataPreGame" EntitySet="ScoutingDataPreGame" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoutingDataQualitative_To_ScoutingDataMatches" Association="Self.FK_ScoutingDataQualitative_To_ScoutingDataMatches">
+            <End Role="ScoutingDataMatches" EntitySet="ScoutingDataMatches" />
+            <End Role="ScoutingDataQualitative" EntitySet="ScoutingDataQualitative" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoutingDataShotAttempts_To_ScoutingDataMatches" Association="Self.FK_ScoutingDataShotAttempts_To_ScoutingDataMatches">
+            <End Role="ScoutingDataMatches" EntitySet="ScoutingDataMatches" />
+            <End Role="ScoutingDataShotAttempts" EntitySet="ScoutingDataShotAttempts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoutingDataTeleop_To_ScoutingDataMatches" Association="Self.FK_ScoutingDataTeleop_To_ScoutingDataMatches">
+            <End Role="ScoutingDataMatches" EntitySet="ScoutingDataMatches" />
+            <End Role="ScoutingDataTeleop" EntitySet="ScoutingDataTeleop" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ScoutingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="Season" />
+            <PropertyRef Name="DistrictCode" />
+          </Key>
+          <Property Name="Season" Type="Int32" Nullable="false" />
+          <Property Name="DistrictCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventMatchResult">
+          <Key>
+            <PropertyRef Name="Season" />
+            <PropertyRef Name="EventCode" />
+            <PropertyRef Name="TournamentLevel" />
+            <PropertyRef Name="MatchNumber" />
+          </Key>
+          <Property Name="Season" Type="Int32" Nullable="false" />
+          <Property Name="EventCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TournamentLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MatchNumber" Type="Int32" Nullable="false" />
+          <Property Name="ActualStartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PostResultTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ScoreRedFinal" Type="Int32" Nullable="false" />
+          <Property Name="ScoreRedFoul" Type="Int32" Nullable="false" />
+          <Property Name="ScoreRedAuto" Type="Int32" Nullable="false" />
+          <Property Name="ScoreBlueFinal" Type="Int32" Nullable="false" />
+          <Property Name="ScoreBlueFoul" Type="Int32" Nullable="false" />
+          <Property Name="ScoreBlueAuto" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventMatchScores2017">
+          <Key>
+            <PropertyRef Name="EventCode" />
+            <PropertyRef Name="TournamentLevel" />
+            <PropertyRef Name="MatchNumber" />
+          </Key>
+          <Property Name="EventCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TournamentLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MatchNumber" Type="Int32" Nullable="false" />
+          <Property Name="Alliance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Robot1Auto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Robot2Auto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Robot3Auto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AutoFuelLow" Type="Int32" Nullable="false" />
+          <Property Name="AutoFuelHigh" Type="Int32" Nullable="false" />
+          <Property Name="Rotor1Auto" Type="Boolean" Nullable="false" />
+          <Property Name="Rotor2Auto" Type="Boolean" Nullable="false" />
+          <Property Name="Rotor1Engaged" Type="Boolean" Nullable="false" />
+          <Property Name="Rotor2Engaged" Type="Boolean" Nullable="false" />
+          <Property Name="Rotor3Engaged" Type="Boolean" Nullable="false" />
+          <Property Name="Rotor4Engaged" Type="Boolean" Nullable="false" />
+          <Property Name="TeleopFuelLow" Type="Int32" Nullable="false" />
+          <Property Name="TeleopFuelHigh" Type="Int32" Nullable="false" />
+          <Property Name="TouchpadNear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TouchpadMiddle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TouchpadFar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KiloPaRankingPointAchieved" Type="Boolean" Nullable="false" />
+          <Property Name="RotorRankingPointAchieved" Type="Boolean" Nullable="false" />
+          <Property Name="FoulCount" Type="Int32" Nullable="false" />
+          <Property Name="TechFoulCount" Type="Int32" Nullable="false" />
+          <Property Name="AutoPoints" Type="Int32" Nullable="false" />
+          <Property Name="AutoMobilityPoints" Type="Int32" Nullable="false" />
+          <Property Name="AutoRotorPoints" Type="Int32" Nullable="false" />
+          <Property Name="AutoFuelPoints" Type="Int32" Nullable="false" />
+          <Property Name="TeleopPoints" Type="Int32" Nullable="false" />
+          <Property Name="TeleopRotorPoints" Type="Int32" Nullable="false" />
+          <Property Name="TeleopFuelPoints" Type="Int32" Nullable="false" />
+          <Property Name="TeleopTakeoffPoints" Type="Int32" Nullable="false" />
+          <Property Name="KilokPaBonusPoints" Type="Int32" Nullable="false" />
+          <Property Name="RotorBonusPoints" Type="Int32" Nullable="false" />
+          <Property Name="AdjustPoints" Type="Int32" Nullable="false" />
+          <Property Name="FoulPoints" Type="Int32" Nullable="false" />
+          <Property Name="TotalPoints" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventMatchTeam">
+          <Key>
+            <PropertyRef Name="Season" />
+            <PropertyRef Name="EventCode" />
+            <PropertyRef Name="MatchNumber" />
+            <PropertyRef Name="TeamNumber" />
+          </Key>
+          <Property Name="Season" Type="Int32" Nullable="false" />
+          <Property Name="EventCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MatchNumber" Type="Int32" Nullable="false" />
+          <Property Name="TeamNumber" Type="Int32" Nullable="false" />
+          <Property Name="Station" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Dq" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventRanking">
+          <Key>
+            <PropertyRef Name="Season" />
+            <PropertyRef Name="EventCode" />
+            <PropertyRef Name="TeamNumber" />
+          </Key>
+          <Property Name="Season" Type="Int32" Nullable="false" />
+          <Property Name="EventCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TeamNumber" Type="Int32" Nullable="false" />
+          <Property Name="DqCount" Type="Int32" Nullable="false" />
+          <Property Name="MatchesPlayed" Type="Int32" Nullable="false" />
+          <Property Name="QualAverage" Type="Double" Nullable="false" />
+          <Property Name="Rank" Type="Int32" Nullable="false" />
+          <Property Name="Wins" Type="Int32" Nullable="false" />
+          <Property Name="Losses" Type="Int32" Nullable="false" />
+          <Property Name="Ties" Type="Int32" Nullable="false" />
+          <Property Name="SortOrder1" Type="Double" Nullable="false" />
+          <Property Name="SortOrder2" Type="Double" Nullable="false" />
+          <Property Name="SortOrder3" Type="Double" Nullable="false" />
+          <Property Name="SortOrder4" Type="Double" Nullable="false" />
+          <Property Name="SortOrder5" Type="Double" Nullable="false" />
+          <Property Name="SortOrder6" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Season" />
+            <PropertyRef Name="EventCode" />
+          </Key>
+          <Property Name="Season" Type="Int32" Nullable="false" />
+          <Property Name="EventCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DistrictCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DivisionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Venue" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="StateProv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TimeZone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WebSite" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Registration">
+          <Key>
+            <PropertyRef Name="Season" />
+            <PropertyRef Name="TeamNumber" />
+            <PropertyRef Name="EventCode" />
+          </Key>
+          <Property Name="Season" Type="Int32" Nullable="false" />
+          <Property Name="TeamNumber" Type="Int32" Nullable="false" />
+          <Property Name="EventCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScoutDataHopperAttempt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScoutingDataId" Type="Int32" Nullable="false" />
+          <Property Name="AutonomousMode" Type="Byte" Nullable="false" />
+          <Property Name="Activated" Type="Byte" Nullable="false" />
+          <Property Name="HopperLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ScoutingDataMatch" Relationship="Self.FK_ScoutDataHopperAttempts_To_ScoutingDataMatches" FromRole="ScoutDataHopperAttempts" ToRole="ScoutingDataMatches" />
+        </EntityType>
+        <EntityType Name="ScoutingDataAutonomou">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScoutingDataId" Type="Int32" Nullable="false" />
+          <Property Name="AutoMobilityPoints" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ScoutingDataMatch" Relationship="Self.FK_ScoutingDataAutonomous_ScoutingDataMatches" FromRole="ScoutingDataAutonomous" ToRole="ScoutingDataMatches" />
+        </EntityType>
+        <EntityType Name="ScoutingDataEndGame">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScoutingDataId" Type="Int32" Nullable="false" />
+          <Property Name="ClimbingAttempted" Type="Byte" Nullable="false" />
+          <Property Name="ClimbingSucceeded" Type="Byte" Nullable="false" />
+          <Property Name="ClimbingTimeInSeconds" Type="Int32" />
+          <Property Name="ClimbingTouchPadPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ScoutingDataMatch" Relationship="Self.FK_ScoutingDataEndGame_To_ScoutingDataMatches" FromRole="ScoutingDataEndGame" ToRole="ScoutingDataMatches" />
+        </EntityType>
+        <EntityType Name="ScoutingDataFileLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="File" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Md5Hash" Type="Binary" MaxLength="16" FixedLength="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScoutingDataGearAttempt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScoutingDataId" Type="Int32" Nullable="false" />
+          <Property Name="AutonomousMode" Type="Byte" Nullable="false" />
+          <Property Name="GearResult" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GearPegPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WasDefended" Type="Byte" />
+          <NavigationProperty Name="ScoutingDataMatch" Relationship="Self.FK_ScoutingDataGearAttempts_To_ScoutingDataMatches" FromRole="ScoutingDataGearAttempts" ToRole="ScoutingDataMatches" />
+        </EntityType>
+        <EntityType Name="ScoutingDataMatch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeviceId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Season" Type="Int32" Nullable="false" />
+          <Property Name="EventCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MatchNumber" Type="Int32" Nullable="false" />
+          <Property Name="TeamNumber" Type="Int32" Nullable="false" />
+          <Property Name="MatchLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Station" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ScoutName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ScoutingTeam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ScoutDataHopperAttempts" Relationship="Self.FK_ScoutDataHopperAttempts_To_ScoutingDataMatches" FromRole="ScoutingDataMatches" ToRole="ScoutDataHopperAttempts" />
+          <NavigationProperty Name="ScoutingDataAutonomous" Relationship="Self.FK_ScoutingDataAutonomous_ScoutingDataMatches" FromRole="ScoutingDataMatches" ToRole="ScoutingDataAutonomous" />
+          <NavigationProperty Name="ScoutingDataEndGames" Relationship="Self.FK_ScoutingDataEndGame_To_ScoutingDataMatches" FromRole="ScoutingDataMatches" ToRole="ScoutingDataEndGame" />
+          <NavigationProperty Name="ScoutingDataGearAttempts" Relationship="Self.FK_ScoutingDataGearAttempts_To_ScoutingDataMatches" FromRole="ScoutingDataMatches" ToRole="ScoutingDataGearAttempts" />
+          <NavigationProperty Name="ScoutingDataPreGames" Relationship="Self.FK_ScoutingDataPreGame_To_ScoutingDataMatches" FromRole="ScoutingDataMatches" ToRole="ScoutingDataPreGame" />
+          <NavigationProperty Name="ScoutingDataQualitatives" Relationship="Self.FK_ScoutingDataQualitative_To_ScoutingDataMatches" FromRole="ScoutingDataMatches" ToRole="ScoutingDataQualitative" />
+          <NavigationProperty Name="ScoutingDataShotAttempts" Relationship="Self.FK_ScoutingDataShotAttempts_To_ScoutingDataMatches" FromRole="ScoutingDataMatches" ToRole="ScoutingDataShotAttempts" />
+          <NavigationProperty Name="ScoutingDataTeleops" Relationship="Self.FK_ScoutingDataTeleop_To_ScoutingDataMatches" FromRole="ScoutingDataMatches" ToRole="ScoutingDataTeleop" />
+        </EntityType>
+        <EntityType Name="ScoutingDataPreGame">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScoutingDataId" Type="Int32" Nullable="false" />
+          <Property Name="PreGameHasGear" Type="Byte" Nullable="false" />
+          <Property Name="PreGameHasFuel" Type="Byte" Nullable="false" />
+          <Property Name="PreGameHasPilot" Type="Byte" Nullable="false" />
+          <Property Name="PreGameUsesOwnRope" Type="Byte" Nullable="false" />
+          <Property Name="PreGameRopeTouchPadPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PreGameRobotPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ScoutingDataMatch" Relationship="Self.FK_ScoutingDataPreGame_To_ScoutingDataMatches" FromRole="ScoutingDataPreGame" ToRole="ScoutingDataMatches" />
+        </EntityType>
+        <EntityType Name="ScoutingDataQualitative">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScoutingDataId" Type="Int32" Nullable="false" />
+          <Property Name="DeadBot" Type="Byte" Nullable="false" />
+          <Property Name="NoShow" Type="Byte" Nullable="false" />
+          <Property Name="Veers" Type="Byte" />
+          <Property Name="HitsPartner" Type="Byte" />
+          <Property Name="Stuck" Type="Byte" />
+          <Property Name="WrongWay" Type="Byte" />
+          <Property Name="FoulCount" Type="Int32" Nullable="false" />
+          <Property Name="AutoTargeting" Type="Byte" />
+          <Property Name="BallCapacity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DrivingDriverTrainType" Type="Byte" />
+          <Property Name="DrivingSpeed" Type="Byte" />
+          <Property Name="DrivingIsReckless" Type="Byte" />
+          <Property Name="DrivingIsAimless" Type="Byte" />
+          <Property Name="DrivingDrivesIntoPartner" Type="Byte" />
+          <Property Name="BallPickupSpeed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BallPickupCanPickUpOffGroud" Type="Byte" />
+          <Property Name="BallPickupFeederAbility" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GearPlacementSpeed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GearPlacementAccuracy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GearPlacementCanPickupOffFloor" Type="Byte" />
+          <Property Name="DefenseAsTargetedBumper" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DefenseAsCrasher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DefenseSpeed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DefenseIsRisky" Type="Byte" />
+          <Property Name="DefenseGoesInForbiddenAreas" Type="Byte" />
+          <Property Name="SmartnessIsPurposeful" Type="Byte" />
+          <Property Name="SmartnessIsConfused" Type="Byte" />
+          <Property Name="SmartnessIsAimless" Type="Byte" />
+          <Property Name="SmartnessIsHelpful" Type="Byte" />
+          <Property Name="SmartnessWorksAgainstAlliance" Type="Byte" />
+          <Property Name="SmartnessIsDangerous" Type="Byte" />
+          <Property Name="SmartnessIsReckless" Type="Byte" />
+          <Property Name="SmartnessGetsInWayOfPartners" Type="Byte" />
+          <Property Name="PilotOneFromTeam" Type="Int32" Nullable="false" />
+          <Property Name="PilotTwoFromTeam" Type="Int32" />
+          <Property Name="PilotGearRetrievalSpeed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PilotGearPlacementSpeed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PilotFailedToTurnCrank" Type="Byte" />
+          <Property Name="PilotDropsRopeInTimelyManner" Type="Byte" />
+          <Property Name="PilotIsHelpfulWithSpottingToDrivers" Type="Byte" />
+          <Property Name="HumanPlayerFromTeam" Type="Int32" Nullable="false" />
+          <Property Name="HumanPlayerMadeMistakeDeliveringGear" Type="Byte" />
+          <Property Name="HumanPlayerMadeMistakeDeliveringFuel" Type="Byte" />
+          <Property Name="Notes" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ScoutingDataMatch" Relationship="Self.FK_ScoutingDataQualitative_To_ScoutingDataMatches" FromRole="ScoutingDataQualitative" ToRole="ScoutingDataMatches" />
+        </EntityType>
+        <EntityType Name="ScoutingDataShotAttempt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScoutingDataId" Type="Int32" Nullable="false" />
+          <Property Name="AutonomousMode" Type="Byte" Nullable="false" />
+          <Property Name="ShotAttempt" Type="Int32" Nullable="false" />
+          <Property Name="ShotsMade" Type="Int32" Nullable="false" />
+          <Property Name="ShotsMissed" Type="Int32" Nullable="false" />
+          <Property Name="ShotDuration" Type="Int32" Nullable="false" />
+          <Property Name="ShotLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WasDefended" Type="Byte" />
+          <NavigationProperty Name="ScoutingDataMatch" Relationship="Self.FK_ScoutingDataShotAttempts_To_ScoutingDataMatches" FromRole="ScoutingDataShotAttempts" ToRole="ScoutingDataMatches" />
+        </EntityType>
+        <EntityType Name="ScoutingDataTeleop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScoutingDataId" Type="Int32" Nullable="false" />
+          <Property Name="TeleopPlayedDefense" Type="Byte" />
+          <Property Name="GearAttemptCount" Type="Int32" />
+          <Property Name="ShotAttemptCount" Type="Int32" />
+          <NavigationProperty Name="ScoutingDataMatch" Relationship="Self.FK_ScoutingDataTeleop_To_ScoutingDataMatches" FromRole="ScoutingDataTeleop" ToRole="ScoutingDataMatches" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="TeamNumber" />
+          </Key>
+          <Property Name="TeamNumber" Type="Int32" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StateProv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DistrictCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RookieYear" Type="Int32" Nullable="false" />
+          <Property Name="RobotName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="WebSite" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="HomeCMP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_ScoutDataHopperAttempts_To_ScoutingDataMatches">
+          <End Role="ScoutingDataMatches" Type="Self.ScoutingDataMatch" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ScoutDataHopperAttempts" Type="Self.ScoutDataHopperAttempt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoutingDataMatches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScoutDataHopperAttempts">
+              <PropertyRef Name="ScoutingDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoutingDataAutonomous_ScoutingDataMatches">
+          <End Role="ScoutingDataMatches" Type="Self.ScoutingDataMatch" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ScoutingDataAutonomous" Type="Self.ScoutingDataAutonomou" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoutingDataMatches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScoutingDataAutonomous">
+              <PropertyRef Name="ScoutingDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoutingDataEndGame_To_ScoutingDataMatches">
+          <End Role="ScoutingDataMatches" Type="Self.ScoutingDataMatch" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ScoutingDataEndGame" Type="Self.ScoutingDataEndGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoutingDataMatches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScoutingDataEndGame">
+              <PropertyRef Name="ScoutingDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoutingDataGearAttempts_To_ScoutingDataMatches">
+          <End Role="ScoutingDataMatches" Type="Self.ScoutingDataMatch" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ScoutingDataGearAttempts" Type="Self.ScoutingDataGearAttempt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoutingDataMatches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScoutingDataGearAttempts">
+              <PropertyRef Name="ScoutingDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoutingDataPreGame_To_ScoutingDataMatches">
+          <End Role="ScoutingDataMatches" Type="Self.ScoutingDataMatch" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ScoutingDataPreGame" Type="Self.ScoutingDataPreGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoutingDataMatches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScoutingDataPreGame">
+              <PropertyRef Name="ScoutingDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoutingDataQualitative_To_ScoutingDataMatches">
+          <End Role="ScoutingDataMatches" Type="Self.ScoutingDataMatch" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ScoutingDataQualitative" Type="Self.ScoutingDataQualitative" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoutingDataMatches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScoutingDataQualitative">
+              <PropertyRef Name="ScoutingDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoutingDataShotAttempts_To_ScoutingDataMatches">
+          <End Role="ScoutingDataMatches" Type="Self.ScoutingDataMatch" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ScoutingDataShotAttempts" Type="Self.ScoutingDataShotAttempt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoutingDataMatches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScoutingDataShotAttempts">
+              <PropertyRef Name="ScoutingDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoutingDataTeleop_To_ScoutingDataMatches">
+          <End Role="ScoutingDataMatches" Type="Self.ScoutingDataMatch" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ScoutingDataTeleop" Type="Self.ScoutingDataTeleop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoutingDataMatches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScoutingDataTeleop">
+              <PropertyRef Name="ScoutingDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ScoutingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Districts" EntityType="Self.District" />
+          <EntitySet Name="EventMatchResults" EntityType="Self.EventMatchResult" />
+          <EntitySet Name="EventMatchScores2017" EntityType="Self.EventMatchScores2017" />
+          <EntitySet Name="EventMatchTeams" EntityType="Self.EventMatchTeam" />
+          <EntitySet Name="EventRankings" EntityType="Self.EventRanking" />
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="Registrations" EntityType="Self.Registration" />
+          <EntitySet Name="ScoutDataHopperAttempts" EntityType="Self.ScoutDataHopperAttempt" />
+          <EntitySet Name="ScoutingDataAutonomous" EntityType="Self.ScoutingDataAutonomou" />
+          <EntitySet Name="ScoutingDataEndGames" EntityType="Self.ScoutingDataEndGame" />
+          <EntitySet Name="ScoutingDataFileLogs" EntityType="Self.ScoutingDataFileLog" />
+          <EntitySet Name="ScoutingDataGearAttempts" EntityType="Self.ScoutingDataGearAttempt" />
+          <EntitySet Name="ScoutingDataMatches" EntityType="Self.ScoutingDataMatch" />
+          <EntitySet Name="ScoutingDataPreGames" EntityType="Self.ScoutingDataPreGame" />
+          <EntitySet Name="ScoutingDataQualitatives" EntityType="Self.ScoutingDataQualitative" />
+          <EntitySet Name="ScoutingDataShotAttempts" EntityType="Self.ScoutingDataShotAttempt" />
+          <EntitySet Name="ScoutingDataTeleops" EntityType="Self.ScoutingDataTeleop" />
+          <EntitySet Name="Teams" EntityType="Self.Team" />
+          <AssociationSet Name="FK_ScoutDataHopperAttempts_To_ScoutingDataMatches" Association="Self.FK_ScoutDataHopperAttempts_To_ScoutingDataMatches">
+            <End Role="ScoutingDataMatches" EntitySet="ScoutingDataMatches" />
+            <End Role="ScoutDataHopperAttempts" EntitySet="ScoutDataHopperAttempts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoutingDataAutonomous_ScoutingDataMatches" Association="Self.FK_ScoutingDataAutonomous_ScoutingDataMatches">
+            <End Role="ScoutingDataMatches" EntitySet="ScoutingDataMatches" />
+            <End Role="ScoutingDataAutonomous" EntitySet="ScoutingDataAutonomous" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoutingDataEndGame_To_ScoutingDataMatches" Association="Self.FK_ScoutingDataEndGame_To_ScoutingDataMatches">
+            <End Role="ScoutingDataMatches" EntitySet="ScoutingDataMatches" />
+            <End Role="ScoutingDataEndGame" EntitySet="ScoutingDataEndGames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoutingDataGearAttempts_To_ScoutingDataMatches" Association="Self.FK_ScoutingDataGearAttempts_To_ScoutingDataMatches">
+            <End Role="ScoutingDataMatches" EntitySet="ScoutingDataMatches" />
+            <End Role="ScoutingDataGearAttempts" EntitySet="ScoutingDataGearAttempts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoutingDataPreGame_To_ScoutingDataMatches" Association="Self.FK_ScoutingDataPreGame_To_ScoutingDataMatches">
+            <End Role="ScoutingDataMatches" EntitySet="ScoutingDataMatches" />
+            <End Role="ScoutingDataPreGame" EntitySet="ScoutingDataPreGames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoutingDataQualitative_To_ScoutingDataMatches" Association="Self.FK_ScoutingDataQualitative_To_ScoutingDataMatches">
+            <End Role="ScoutingDataMatches" EntitySet="ScoutingDataMatches" />
+            <End Role="ScoutingDataQualitative" EntitySet="ScoutingDataQualitatives" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoutingDataShotAttempts_To_ScoutingDataMatches" Association="Self.FK_ScoutingDataShotAttempts_To_ScoutingDataMatches">
+            <End Role="ScoutingDataMatches" EntitySet="ScoutingDataMatches" />
+            <End Role="ScoutingDataShotAttempts" EntitySet="ScoutingDataShotAttempts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoutingDataTeleop_To_ScoutingDataMatches" Association="Self.FK_ScoutingDataTeleop_To_ScoutingDataMatches">
+            <End Role="ScoutingDataMatches" EntitySet="ScoutingDataMatches" />
+            <End Role="ScoutingDataTeleop" EntitySet="ScoutingDataTeleops" />
+          </AssociationSet>
+          <FunctionImport Name="Delete_District">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="DistrictCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Delete_Event">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="EventCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Delete_EventMatchResult">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="EventCode" Mode="In" Type="String" />
+            <Parameter Name="TournamentLevel" Mode="In" Type="String" />
+            <Parameter Name="MatchNumber" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Delete_EventMatchScore2017">
+            <Parameter Name="EventCode" Mode="In" Type="String" />
+            <Parameter Name="TournamentLevel" Mode="In" Type="String" />
+            <Parameter Name="MatchNumber" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Delete_EventMatchTeam">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="EventCode" Mode="In" Type="String" />
+            <Parameter Name="MatchNumber" Mode="In" Type="Int32" />
+            <Parameter Name="TeamNumber" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Delete_EventRanking">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="EventCode" Mode="In" Type="String" />
+            <Parameter Name="TeamNumber" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Delete_Registration">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="TeamNumber" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Delete_Team">
+            <Parameter Name="TeamNumber" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Insert_District">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="DistrictCode" Mode="In" Type="String" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Insert_Event">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="EventCode" Mode="In" Type="String" />
+            <Parameter Name="DistrictCode" Mode="In" Type="String" />
+            <Parameter Name="DivisionCode" Mode="In" Type="String" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Type" Mode="In" Type="String" />
+            <Parameter Name="Venue" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="City" Mode="In" Type="String" />
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="StateProv" Mode="In" Type="String" />
+            <Parameter Name="DateStart" Mode="In" Type="DateTime" />
+            <Parameter Name="DateEnd" Mode="In" Type="DateTime" />
+            <Parameter Name="WebSite" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Insert_EventMatchScore2017">
+            <Parameter Name="EventCode" Mode="In" Type="String" />
+            <Parameter Name="TournamentLevel" Mode="In" Type="String" />
+            <Parameter Name="MatchNumber" Mode="In" Type="Int32" />
+            <Parameter Name="Alliance" Mode="In" Type="String" />
+            <Parameter Name="Robot1Auto" Mode="In" Type="String" />
+            <Parameter Name="Robot2Auto" Mode="In" Type="String" />
+            <Parameter Name="Robot3Auto" Mode="In" Type="String" />
+            <Parameter Name="AutoFuelLow" Mode="In" Type="Int32" />
+            <Parameter Name="AutoFuelHigh" Mode="In" Type="Int32" />
+            <Parameter Name="Rotor1Auto" Mode="In" Type="Boolean" />
+            <Parameter Name="Rotor2Auto" Mode="In" Type="Boolean" />
+            <Parameter Name="Rotor1Engaged" Mode="In" Type="Boolean" />
+            <Parameter Name="Rotor2Engaged" Mode="In" Type="Boolean" />
+            <Parameter Name="Rotor3Engaged" Mode="In" Type="Boolean" />
+            <Parameter Name="Rotor4Engaged" Mode="In" Type="Boolean" />
+            <Parameter Name="TeleopFuelLow" Mode="In" Type="Int32" />
+            <Parameter Name="TeleopFuelHigh" Mode="In" Type="Int32" />
+            <Parameter Name="TouchpadNear" Mode="In" Type="String" />
+            <Parameter Name="TouchpadMiddle" Mode="In" Type="String" />
+            <Parameter Name="TouchpadFar" Mode="In" Type="String" />
+            <Parameter Name="KiloPaRankingPointAchieved" Mode="In" Type="Boolean" />
+            <Parameter Name="RotorRankingPointAchieved" Mode="In" Type="Boolean" />
+            <Parameter Name="FoulCount" Mode="In" Type="Int32" />
+            <Parameter Name="TechFoulCount" Mode="In" Type="Int32" />
+            <Parameter Name="AutoPoints" Mode="In" Type="Int32" />
+            <Parameter Name="AutoMobilityPoints" Mode="In" Type="Int32" />
+            <Parameter Name="AutoRotorPoints" Mode="In" Type="Int32" />
+            <Parameter Name="AutoFuelPoints" Mode="In" Type="Int32" />
+            <Parameter Name="TeleopPoints" Mode="In" Type="Int32" />
+            <Parameter Name="TeleopRotorPoints" Mode="In" Type="Int32" />
+            <Parameter Name="TeleopFuelPoints" Mode="In" Type="Int32" />
+            <Parameter Name="TeleopTakeoffPoints" Mode="In" Type="Int32" />
+            <Parameter Name="KilokPaBonusPoints" Mode="In" Type="Int32" />
+            <Parameter Name="RotorBonusPoints" Mode="In" Type="Int32" />
+            <Parameter Name="AdjustPoints" Mode="In" Type="Int32" />
+            <Parameter Name="FoulPoints" Mode="In" Type="Int32" />
+            <Parameter Name="TotalPoints" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Insert_EventMatchTeam">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="EventCode" Mode="In" Type="String" />
+            <Parameter Name="MatchNumber" Mode="In" Type="Int32" />
+            <Parameter Name="TeamNumber" Mode="In" Type="Int32" />
+            <Parameter Name="Station" Mode="In" Type="String" />
+            <Parameter Name="Dq" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="Insert_EventRanking">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="EventCode" Mode="In" Type="String" />
+            <Parameter Name="TeamNumber" Mode="In" Type="Int32" />
+            <Parameter Name="DqCount" Mode="In" Type="Int32" />
+            <Parameter Name="MatchesPlayed" Mode="In" Type="Int32" />
+            <Parameter Name="QualAverage" Mode="In" Type="Double" />
+            <Parameter Name="Rank" Mode="In" Type="Int32" />
+            <Parameter Name="Wins" Mode="In" Type="Int32" />
+            <Parameter Name="Losses" Mode="In" Type="Int32" />
+            <Parameter Name="Ties" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder1" Mode="In" Type="Double" />
+            <Parameter Name="SortOrder2" Mode="In" Type="Double" />
+            <Parameter Name="SortOrder3" Mode="In" Type="Double" />
+            <Parameter Name="SortOrder4" Mode="In" Type="Double" />
+            <Parameter Name="SortOrder5" Mode="In" Type="Double" />
+            <Parameter Name="SortOrder6" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="Insert_MatchEventResult">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="EventCode" Mode="In" Type="String" />
+            <Parameter Name="ActualStartTime" Mode="In" Type="DateTime" />
+            <Parameter Name="TournamentLevel" Mode="In" Type="String" />
+            <Parameter Name="MatchNumber" Mode="In" Type="Int32" />
+            <Parameter Name="PostResultTime" Mode="In" Type="DateTime" />
+            <Parameter Name="ScoreRedFinal" Mode="In" Type="Int32" />
+            <Parameter Name="ScoreRedFoul" Mode="In" Type="Int32" />
+            <Parameter Name="ScoreRedAuto" Mode="In" Type="Int32" />
+            <Parameter Name="ScoreBlueFinal" Mode="In" Type="Int32" />
+            <Parameter Name="ScoreBlueFoul" Mode="In" Type="Int32" />
+            <Parameter Name="ScoreBlueAuto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Insert_Registration">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="TeamNumber" Mode="In" Type="Int32" />
+            <Parameter Name="EventCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Insert_Team">
+            <Parameter Name="TeamNumber" Mode="In" Type="Int32" />
+            <Parameter Name="ShortName" Mode="In" Type="String" />
+            <Parameter Name="FullName" Mode="In" Type="String" />
+            <Parameter Name="City" Mode="In" Type="String" />
+            <Parameter Name="StateProv" Mode="In" Type="String" />
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="DistrictCode" Mode="In" Type="String" />
+            <Parameter Name="RookieYear" Mode="In" Type="Int32" />
+            <Parameter Name="RobotName" Mode="In" Type="String" />
+            <Parameter Name="WebSite" Mode="In" Type="String" />
+            <Parameter Name="SchoolName" Mode="In" Type="String" />
+            <Parameter Name="HomeCMP" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Update_District">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="DistrictCode" Mode="In" Type="String" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Update_Event">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="EventCode" Mode="In" Type="String" />
+            <Parameter Name="DistrictCode" Mode="In" Type="String" />
+            <Parameter Name="DivisionCode" Mode="In" Type="String" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Type" Mode="In" Type="String" />
+            <Parameter Name="Venue" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="City" Mode="In" Type="String" />
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="StateProv" Mode="In" Type="String" />
+            <Parameter Name="DateStart" Mode="In" Type="DateTime" />
+            <Parameter Name="DateEnd" Mode="In" Type="DateTime" />
+            <Parameter Name="WebSite" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Update_EventMatchResult">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="EventCode" Mode="In" Type="String" />
+            <Parameter Name="ActualStartTime" Mode="In" Type="DateTime" />
+            <Parameter Name="TournamentLevel" Mode="In" Type="String" />
+            <Parameter Name="MatchNumber" Mode="In" Type="Int32" />
+            <Parameter Name="PostResultTime" Mode="In" Type="DateTime" />
+            <Parameter Name="ScoreRedFinal" Mode="In" Type="Int32" />
+            <Parameter Name="ScoreRedFoul" Mode="In" Type="Int32" />
+            <Parameter Name="ScoreRedAuto" Mode="In" Type="Int32" />
+            <Parameter Name="ScoreBlueFinal" Mode="In" Type="Int32" />
+            <Parameter Name="ScoreBlueFoul" Mode="In" Type="Int32" />
+            <Parameter Name="ScoreBlueAuto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Update_EventMatchScore2017">
+            <Parameter Name="EventCode" Mode="In" Type="String" />
+            <Parameter Name="TournamentLevel" Mode="In" Type="String" />
+            <Parameter Name="MatchNumber" Mode="In" Type="Int32" />
+            <Parameter Name="Alliance" Mode="In" Type="String" />
+            <Parameter Name="Robot1Auto" Mode="In" Type="String" />
+            <Parameter Name="Robot2Auto" Mode="In" Type="String" />
+            <Parameter Name="Robot3Auto" Mode="In" Type="String" />
+            <Parameter Name="AutoFuelLow" Mode="In" Type="Int32" />
+            <Parameter Name="AutoFuelHigh" Mode="In" Type="Int32" />
+            <Parameter Name="Rotor1Auto" Mode="In" Type="Boolean" />
+            <Parameter Name="Rotor2Auto" Mode="In" Type="Boolean" />
+            <Parameter Name="Rotor1Engaged" Mode="In" Type="Boolean" />
+            <Parameter Name="Rotor2Engaged" Mode="In" Type="Boolean" />
+            <Parameter Name="Rotor3Engaged" Mode="In" Type="Boolean" />
+            <Parameter Name="Rotor4Engaged" Mode="In" Type="Boolean" />
+            <Parameter Name="TeleopFuelLow" Mode="In" Type="Int32" />
+            <Parameter Name="TeleopFuelHigh" Mode="In" Type="Int32" />
+            <Parameter Name="TouchpadNear" Mode="In" Type="String" />
+            <Parameter Name="TouchpadMiddle" Mode="In" Type="String" />
+            <Parameter Name="TouchpadFar" Mode="In" Type="String" />
+            <Parameter Name="KiloPaRankingPointAchieved" Mode="In" Type="Boolean" />
+            <Parameter Name="RotorRankingPointAchieved" Mode="In" Type="Boolean" />
+            <Parameter Name="FoulCount" Mode="In" Type="Int32" />
+            <Parameter Name="TechFoulCount" Mode="In" Type="Int32" />
+            <Parameter Name="AutoPoints" Mode="In" Type="Int32" />
+            <Parameter Name="AutoMobilityPoints" Mode="In" Type="Int32" />
+            <Parameter Name="AutoRotorPoints" Mode="In" Type="Int32" />
+            <Parameter Name="AutoFuelPoints" Mode="In" Type="Int32" />
+            <Parameter Name="TeleopPoints" Mode="In" Type="Int32" />
+            <Parameter Name="TeleopRotorPoints" Mode="In" Type="Int32" />
+            <Parameter Name="TeleopFuelPoints" Mode="In" Type="Int32" />
+            <Parameter Name="TeleopTakeoffPoints" Mode="In" Type="Int32" />
+            <Parameter Name="KilokPaBonusPoints" Mode="In" Type="Int32" />
+            <Parameter Name="RotorBonusPoints" Mode="In" Type="Int32" />
+            <Parameter Name="AdjustPoints" Mode="In" Type="Int32" />
+            <Parameter Name="FoulPoints" Mode="In" Type="Int32" />
+            <Parameter Name="TotalPoints" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Update_EventMatchTeam">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="EventCode" Mode="In" Type="String" />
+            <Parameter Name="MatchNumber" Mode="In" Type="Int32" />
+            <Parameter Name="TeamNumber" Mode="In" Type="Int32" />
+            <Parameter Name="Station" Mode="In" Type="String" />
+            <Parameter Name="Dq" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="Update_EventRanking">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="EventCode" Mode="In" Type="String" />
+            <Parameter Name="TeamNumber" Mode="In" Type="Int32" />
+            <Parameter Name="DqCount" Mode="In" Type="Int32" />
+            <Parameter Name="MatchesPlayed" Mode="In" Type="Int32" />
+            <Parameter Name="QualAverage" Mode="In" Type="Double" />
+            <Parameter Name="Rank" Mode="In" Type="Int32" />
+            <Parameter Name="Wins" Mode="In" Type="Int32" />
+            <Parameter Name="Losses" Mode="In" Type="Int32" />
+            <Parameter Name="Ties" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder1" Mode="In" Type="Double" />
+            <Parameter Name="SortOrder2" Mode="In" Type="Double" />
+            <Parameter Name="SortOrder3" Mode="In" Type="Double" />
+            <Parameter Name="SortOrder4" Mode="In" Type="Double" />
+            <Parameter Name="SortOrder5" Mode="In" Type="Double" />
+            <Parameter Name="SortOrder6" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="Update_Registration">
+            <Parameter Name="Season" Mode="In" Type="Int32" />
+            <Parameter Name="TeamNumber" Mode="In" Type="Int32" />
+            <Parameter Name="EventCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Update_Team">
+            <Parameter Name="TeamNumber" Mode="In" Type="Int32" />
+            <Parameter Name="ShortName" Mode="In" Type="String" />
+            <Parameter Name="FullName" Mode="In" Type="String" />
+            <Parameter Name="City" Mode="In" Type="String" />
+            <Parameter Name="StateProv" Mode="In" Type="String" />
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="DistrictCode" Mode="In" Type="String" />
+            <Parameter Name="RookieYear" Mode="In" Type="Int32" />
+            <Parameter Name="RobotName" Mode="In" Type="String" />
+            <Parameter Name="WebSite" Mode="In" Type="String" />
+            <Parameter Name="SchoolName" Mode="In" Type="String" />
+            <Parameter Name="HomeCMP" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ScoutingModelStoreContainer" CdmEntityContainer="ScoutingEntities">
+          <EntitySetMapping Name="Districts">
+            <EntityTypeMapping TypeName="ScoutingModel.District">
+              <MappingFragment StoreEntitySet="Districts">
+                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventMatchResults">
+            <EntityTypeMapping TypeName="ScoutingModel.EventMatchResult">
+              <MappingFragment StoreEntitySet="EventMatchResults">
+                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+                <ScalarProperty Name="TournamentLevel" ColumnName="TournamentLevel" />
+                <ScalarProperty Name="MatchNumber" ColumnName="MatchNumber" />
+                <ScalarProperty Name="ActualStartTime" ColumnName="ActualStartTime" />
+                <ScalarProperty Name="PostResultTime" ColumnName="PostResultTime" />
+                <ScalarProperty Name="ScoreRedFinal" ColumnName="ScoreRedFinal" />
+                <ScalarProperty Name="ScoreRedFoul" ColumnName="ScoreRedFoul" />
+                <ScalarProperty Name="ScoreRedAuto" ColumnName="ScoreRedAuto" />
+                <ScalarProperty Name="ScoreBlueFinal" ColumnName="ScoreBlueFinal" />
+                <ScalarProperty Name="ScoreBlueFoul" ColumnName="ScoreBlueFoul" />
+                <ScalarProperty Name="ScoreBlueAuto" ColumnName="ScoreBlueAuto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventMatchScores2017">
+            <EntityTypeMapping TypeName="ScoutingModel.EventMatchScores2017">
+              <MappingFragment StoreEntitySet="EventMatchScores2017">
+                <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+                <ScalarProperty Name="TournamentLevel" ColumnName="TournamentLevel" />
+                <ScalarProperty Name="MatchNumber" ColumnName="MatchNumber" />
+                <ScalarProperty Name="Alliance" ColumnName="Alliance" />
+                <ScalarProperty Name="Robot1Auto" ColumnName="Robot1Auto" />
+                <ScalarProperty Name="Robot2Auto" ColumnName="Robot2Auto" />
+                <ScalarProperty Name="Robot3Auto" ColumnName="Robot3Auto" />
+                <ScalarProperty Name="AutoFuelLow" ColumnName="AutoFuelLow" />
+                <ScalarProperty Name="AutoFuelHigh" ColumnName="AutoFuelHigh" />
+                <ScalarProperty Name="Rotor1Auto" ColumnName="Rotor1Auto" />
+                <ScalarProperty Name="Rotor2Auto" ColumnName="Rotor2Auto" />
+                <ScalarProperty Name="Rotor1Engaged" ColumnName="Rotor1Engaged" />
+                <ScalarProperty Name="Rotor2Engaged" ColumnName="Rotor2Engaged" />
+                <ScalarProperty Name="Rotor3Engaged" ColumnName="Rotor3Engaged" />
+                <ScalarProperty Name="Rotor4Engaged" ColumnName="Rotor4Engaged" />
+                <ScalarProperty Name="TeleopFuelLow" ColumnName="TeleopFuelLow" />
+                <ScalarProperty Name="TeleopFuelHigh" ColumnName="TeleopFuelHigh" />
+                <ScalarProperty Name="TouchpadNear" ColumnName="TouchpadNear" />
+                <ScalarProperty Name="TouchpadMiddle" ColumnName="TouchpadMiddle" />
+                <ScalarProperty Name="TouchpadFar" ColumnName="TouchpadFar" />
+                <ScalarProperty Name="KiloPaRankingPointAchieved" ColumnName="KiloPaRankingPointAchieved" />
+                <ScalarProperty Name="RotorRankingPointAchieved" ColumnName="RotorRankingPointAchieved" />
+                <ScalarProperty Name="FoulCount" ColumnName="FoulCount" />
+                <ScalarProperty Name="TechFoulCount" ColumnName="TechFoulCount" />
+                <ScalarProperty Name="AutoPoints" ColumnName="AutoPoints" />
+                <ScalarProperty Name="AutoMobilityPoints" ColumnName="AutoMobilityPoints" />
+                <ScalarProperty Name="AutoRotorPoints" ColumnName="AutoRotorPoints" />
+                <ScalarProperty Name="AutoFuelPoints" ColumnName="AutoFuelPoints" />
+                <ScalarProperty Name="TeleopPoints" ColumnName="TeleopPoints" />
+                <ScalarProperty Name="TeleopRotorPoints" ColumnName="TeleopRotorPoints" />
+                <ScalarProperty Name="TeleopFuelPoints" ColumnName="TeleopFuelPoints" />
+                <ScalarProperty Name="TeleopTakeoffPoints" ColumnName="TeleopTakeoffPoints" />
+                <ScalarProperty Name="KilokPaBonusPoints" ColumnName="KilokPaBonusPoints" />
+                <ScalarProperty Name="RotorBonusPoints" ColumnName="RotorBonusPoints" />
+                <ScalarProperty Name="AdjustPoints" ColumnName="AdjustPoints" />
+                <ScalarProperty Name="FoulPoints" ColumnName="FoulPoints" />
+                <ScalarProperty Name="TotalPoints" ColumnName="TotalPoints" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventMatchTeams">
+            <EntityTypeMapping TypeName="ScoutingModel.EventMatchTeam">
+              <MappingFragment StoreEntitySet="EventMatchTeams">
+                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+                <ScalarProperty Name="MatchNumber" ColumnName="MatchNumber" />
+                <ScalarProperty Name="TeamNumber" ColumnName="TeamNumber" />
+                <ScalarProperty Name="Station" ColumnName="Station" />
+                <ScalarProperty Name="Dq" ColumnName="Dq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventRankings">
+            <EntityTypeMapping TypeName="ScoutingModel.EventRanking">
+              <MappingFragment StoreEntitySet="EventRankings">
+                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+                <ScalarProperty Name="TeamNumber" ColumnName="TeamNumber" />
+                <ScalarProperty Name="DqCount" ColumnName="DqCount" />
+                <ScalarProperty Name="MatchesPlayed" ColumnName="MatchesPlayed" />
+                <ScalarProperty Name="QualAverage" ColumnName="QualAverage" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="Wins" ColumnName="Wins" />
+                <ScalarProperty Name="Losses" ColumnName="Losses" />
+                <ScalarProperty Name="Ties" ColumnName="Ties" />
+                <ScalarProperty Name="SortOrder1" ColumnName="SortOrder1" />
+                <ScalarProperty Name="SortOrder2" ColumnName="SortOrder2" />
+                <ScalarProperty Name="SortOrder3" ColumnName="SortOrder3" />
+                <ScalarProperty Name="SortOrder4" ColumnName="SortOrder4" />
+                <ScalarProperty Name="SortOrder5" ColumnName="SortOrder5" />
+                <ScalarProperty Name="SortOrder6" ColumnName="SortOrder6" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="ScoutingModel.Event">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+                <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+                <ScalarProperty Name="DivisionCode" ColumnName="DivisionCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Venue" ColumnName="Venue" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="StateProv" ColumnName="StateProv" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="TimeZone" ColumnName="TimeZone" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Registrations">
+            <EntityTypeMapping TypeName="ScoutingModel.Registration">
+              <MappingFragment StoreEntitySet="Registrations">
+                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="TeamNumber" ColumnName="TeamNumber" />
+                <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoutDataHopperAttempts">
+            <EntityTypeMapping TypeName="ScoutingModel.ScoutDataHopperAttempt">
+              <MappingFragment StoreEntitySet="ScoutDataHopperAttempts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ScoutingDataId" ColumnName="ScoutingDataId" />
+                <ScalarProperty Name="AutonomousMode" ColumnName="AutonomousMode" />
+                <ScalarProperty Name="Activated" ColumnName="Activated" />
+                <ScalarProperty Name="HopperLocation" ColumnName="HopperLocation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoutingDataAutonomous">
+            <EntityTypeMapping TypeName="ScoutingModel.ScoutingDataAutonomou">
+              <MappingFragment StoreEntitySet="ScoutingDataAutonomous">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ScoutingDataId" ColumnName="ScoutingDataId" />
+                <ScalarProperty Name="AutoMobilityPoints" ColumnName="AutoMobilityPoints" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoutingDataEndGames">
+            <EntityTypeMapping TypeName="ScoutingModel.ScoutingDataEndGame">
+              <MappingFragment StoreEntitySet="ScoutingDataEndGame">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ScoutingDataId" ColumnName="ScoutingDataId" />
+                <ScalarProperty Name="ClimbingAttempted" ColumnName="ClimbingAttempted" />
+                <ScalarProperty Name="ClimbingSucceeded" ColumnName="ClimbingSucceeded" />
+                <ScalarProperty Name="ClimbingTimeInSeconds" ColumnName="ClimbingTimeInSeconds" />
+                <ScalarProperty Name="ClimbingTouchPadPosition" ColumnName="ClimbingTouchPadPosition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoutingDataFileLogs">
+            <EntityTypeMapping TypeName="ScoutingModel.ScoutingDataFileLog">
+              <MappingFragment StoreEntitySet="ScoutingDataFileLog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="File" ColumnName="File" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="Md5Hash" ColumnName="Md5Hash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoutingDataGearAttempts">
+            <EntityTypeMapping TypeName="ScoutingModel.ScoutingDataGearAttempt">
+              <MappingFragment StoreEntitySet="ScoutingDataGearAttempts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ScoutingDataId" ColumnName="ScoutingDataId" />
+                <ScalarProperty Name="AutonomousMode" ColumnName="AutonomousMode" />
+                <ScalarProperty Name="GearResult" ColumnName="GearResult" />
+                <ScalarProperty Name="GearPegPosition" ColumnName="GearPegPosition" />
+                <ScalarProperty Name="WasDefended" ColumnName="WasDefended" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoutingDataMatches">
+            <EntityTypeMapping TypeName="ScoutingModel.ScoutingDataMatch">
+              <MappingFragment StoreEntitySet="ScoutingDataMatches">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+                <ScalarProperty Name="MatchNumber" ColumnName="MatchNumber" />
+                <ScalarProperty Name="TeamNumber" ColumnName="TeamNumber" />
+                <ScalarProperty Name="MatchLevel" ColumnName="MatchLevel" />
+                <ScalarProperty Name="Station" ColumnName="Station" />
+                <ScalarProperty Name="ScoutName" ColumnName="ScoutName" />
+                <ScalarProperty Name="ScoutingTeam" ColumnName="ScoutingTeam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoutingDataPreGames">
+            <EntityTypeMapping TypeName="ScoutingModel.ScoutingDataPreGame">
+              <MappingFragment StoreEntitySet="ScoutingDataPreGame">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ScoutingDataId" ColumnName="ScoutingDataId" />
+                <ScalarProperty Name="PreGameHasGear" ColumnName="PreGameHasGear" />
+                <ScalarProperty Name="PreGameHasFuel" ColumnName="PreGameHasFuel" />
+                <ScalarProperty Name="PreGameHasPilot" ColumnName="PreGameHasPilot" />
+                <ScalarProperty Name="PreGameUsesOwnRope" ColumnName="PreGameUsesOwnRope" />
+                <ScalarProperty Name="PreGameRopeTouchPadPosition" ColumnName="PreGameRopeTouchPadPosition" />
+                <ScalarProperty Name="PreGameRobotPosition" ColumnName="PreGameRobotPosition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoutingDataQualitatives">
+            <EntityTypeMapping TypeName="ScoutingModel.ScoutingDataQualitative">
+              <MappingFragment StoreEntitySet="ScoutingDataQualitative">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ScoutingDataId" ColumnName="ScoutingDataId" />
+                <ScalarProperty Name="DeadBot" ColumnName="DeadBot" />
+                <ScalarProperty Name="NoShow" ColumnName="NoShow" />
+                <ScalarProperty Name="Veers" ColumnName="Veers" />
+                <ScalarProperty Name="HitsPartner" ColumnName="HitsPartner" />
+                <ScalarProperty Name="Stuck" ColumnName="Stuck" />
+                <ScalarProperty Name="WrongWay" ColumnName="WrongWay" />
+                <ScalarProperty Name="FoulCount" ColumnName="FoulCount" />
+                <ScalarProperty Name="AutoTargeting" ColumnName="AutoTargeting" />
+                <ScalarProperty Name="BallCapacity" ColumnName="BallCapacity" />
+                <ScalarProperty Name="DrivingDriverTrainType" ColumnName="DrivingDriverTrainType" />
+                <ScalarProperty Name="DrivingSpeed" ColumnName="DrivingSpeed" />
+                <ScalarProperty Name="DrivingIsReckless" ColumnName="DrivingIsReckless" />
+                <ScalarProperty Name="DrivingIsAimless" ColumnName="DrivingIsAimless" />
+                <ScalarProperty Name="DrivingDrivesIntoPartner" ColumnName="DrivingDrivesIntoPartner" />
+                <ScalarProperty Name="BallPickupSpeed" ColumnName="BallPickupSpeed" />
+                <ScalarProperty Name="BallPickupCanPickUpOffGroud" ColumnName="BallPickupCanPickUpOffGroud" />
+                <ScalarProperty Name="BallPickupFeederAbility" ColumnName="BallPickupFeederAbility" />
+                <ScalarProperty Name="GearPlacementSpeed" ColumnName="GearPlacementSpeed" />
+                <ScalarProperty Name="GearPlacementAccuracy" ColumnName="GearPlacementAccuracy" />
+                <ScalarProperty Name="GearPlacementCanPickupOffFloor" ColumnName="GearPlacementCanPickupOffFloor" />
+                <ScalarProperty Name="DefenseAsTargetedBumper" ColumnName="DefenseAsTargetedBumper" />
+                <ScalarProperty Name="DefenseAsCrasher" ColumnName="DefenseAsCrasher" />
+                <ScalarProperty Name="DefenseSpeed" ColumnName="DefenseSpeed" />
+                <ScalarProperty Name="DefenseIsRisky" ColumnName="DefenseIsRisky" />
+                <ScalarProperty Name="DefenseGoesInForbiddenAreas" ColumnName="DefenseGoesInForbiddenAreas" />
+                <ScalarProperty Name="SmartnessIsPurposeful" ColumnName="SmartnessIsPurposeful" />
+                <ScalarProperty Name="SmartnessIsConfused" ColumnName="SmartnessIsConfused" />
+                <ScalarProperty Name="SmartnessIsAimless" ColumnName="SmartnessIsAimless" />
+                <ScalarProperty Name="SmartnessIsHelpful" ColumnName="SmartnessIsHelpful" />
+                <ScalarProperty Name="SmartnessWorksAgainstAlliance" ColumnName="SmartnessWorksAgainstAlliance" />
+                <ScalarProperty Name="SmartnessIsDangerous" ColumnName="SmartnessIsDangerous" />
+                <ScalarProperty Name="SmartnessIsReckless" ColumnName="SmartnessIsReckless" />
+                <ScalarProperty Name="SmartnessGetsInWayOfPartners" ColumnName="SmartnessGetsInWayOfPartners" />
+                <ScalarProperty Name="PilotOneFromTeam" ColumnName="PilotOneFromTeam" />
+                <ScalarProperty Name="PilotTwoFromTeam" ColumnName="PilotTwoFromTeam" />
+                <ScalarProperty Name="PilotGearRetrievalSpeed" ColumnName="PilotGearRetrievalSpeed" />
+                <ScalarProperty Name="PilotGearPlacementSpeed" ColumnName="PilotGearPlacementSpeed" />
+                <ScalarProperty Name="PilotFailedToTurnCrank" ColumnName="PilotFailedToTurnCrank" />
+                <ScalarProperty Name="PilotDropsRopeInTimelyManner" ColumnName="PilotDropsRopeInTimelyManner" />
+                <ScalarProperty Name="PilotIsHelpfulWithSpottingToDrivers" ColumnName="PilotIsHelpfulWithSpottingToDrivers" />
+                <ScalarProperty Name="HumanPlayerFromTeam" ColumnName="HumanPlayerFromTeam" />
+                <ScalarProperty Name="HumanPlayerMadeMistakeDeliveringGear" ColumnName="HumanPlayerMadeMistakeDeliveringGear" />
+                <ScalarProperty Name="HumanPlayerMadeMistakeDeliveringFuel" ColumnName="HumanPlayerMadeMistakeDeliveringFuel" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoutingDataShotAttempts">
+            <EntityTypeMapping TypeName="ScoutingModel.ScoutingDataShotAttempt">
+              <MappingFragment StoreEntitySet="ScoutingDataShotAttempts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ScoutingDataId" ColumnName="ScoutingDataId" />
+                <ScalarProperty Name="AutonomousMode" ColumnName="AutonomousMode" />
+                <ScalarProperty Name="ShotAttempt" ColumnName="ShotAttempt" />
+                <ScalarProperty Name="ShotsMade" ColumnName="ShotsMade" />
+                <ScalarProperty Name="ShotsMissed" ColumnName="ShotsMissed" />
+                <ScalarProperty Name="ShotDuration" ColumnName="ShotDuration" />
+                <ScalarProperty Name="ShotLocation" ColumnName="ShotLocation" />
+                <ScalarProperty Name="WasDefended" ColumnName="WasDefended" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoutingDataTeleops">
+            <EntityTypeMapping TypeName="ScoutingModel.ScoutingDataTeleop">
+              <MappingFragment StoreEntitySet="ScoutingDataTeleop">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ScoutingDataId" ColumnName="ScoutingDataId" />
+                <ScalarProperty Name="TeleopPlayedDefense" ColumnName="TeleopPlayedDefense" />
+                <ScalarProperty Name="GearAttemptCount" ColumnName="GearAttemptCount" />
+                <ScalarProperty Name="ShotAttemptCount" ColumnName="ShotAttemptCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teams">
+            <EntityTypeMapping TypeName="ScoutingModel.Team">
+              <MappingFragment StoreEntitySet="Teams">
+                <ScalarProperty Name="TeamNumber" ColumnName="TeamNumber" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="StateProv" ColumnName="StateProv" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+                <ScalarProperty Name="RookieYear" ColumnName="RookieYear" />
+                <ScalarProperty Name="RobotName" ColumnName="RobotName" />
+                <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="HomeCMP" ColumnName="HomeCMP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Delete_District" FunctionName="ScoutingModel.Store.Delete_District" />
+          <FunctionImportMapping FunctionImportName="Delete_Event" FunctionName="ScoutingModel.Store.Delete_Event" />
+          <FunctionImportMapping FunctionImportName="Delete_EventMatchResult" FunctionName="ScoutingModel.Store.Delete_EventMatchResult" />
+          <FunctionImportMapping FunctionImportName="Delete_EventMatchScore2017" FunctionName="ScoutingModel.Store.Delete_EventMatchScore2017" />
+          <FunctionImportMapping FunctionImportName="Delete_EventMatchTeam" FunctionName="ScoutingModel.Store.Delete_EventMatchTeam" />
+          <FunctionImportMapping FunctionImportName="Delete_EventRanking" FunctionName="ScoutingModel.Store.Delete_EventRanking" />
+          <FunctionImportMapping FunctionImportName="Delete_Registration" FunctionName="ScoutingModel.Store.Delete_Registration" />
+          <FunctionImportMapping FunctionImportName="Delete_Team" FunctionName="ScoutingModel.Store.Delete_Team" />
+          <FunctionImportMapping FunctionImportName="Insert_District" FunctionName="ScoutingModel.Store.Insert_District" />
+          <FunctionImportMapping FunctionImportName="Insert_Event" FunctionName="ScoutingModel.Store.Insert_Event" />
+          <FunctionImportMapping FunctionImportName="Insert_EventMatchScore2017" FunctionName="ScoutingModel.Store.Insert_EventMatchScore2017" />
+          <FunctionImportMapping FunctionImportName="Insert_EventMatchTeam" FunctionName="ScoutingModel.Store.Insert_EventMatchTeam" />
+          <FunctionImportMapping FunctionImportName="Insert_EventRanking" FunctionName="ScoutingModel.Store.Insert_EventRanking" />
+          <FunctionImportMapping FunctionImportName="Insert_MatchEventResult" FunctionName="ScoutingModel.Store.Insert_MatchEventResult" />
+          <FunctionImportMapping FunctionImportName="Insert_Registration" FunctionName="ScoutingModel.Store.Insert_Registration" />
+          <FunctionImportMapping FunctionImportName="Insert_Team" FunctionName="ScoutingModel.Store.Insert_Team" />
+          <FunctionImportMapping FunctionImportName="Update_District" FunctionName="ScoutingModel.Store.Update_District" />
+          <FunctionImportMapping FunctionImportName="Update_Event" FunctionName="ScoutingModel.Store.Update_Event" />
+          <FunctionImportMapping FunctionImportName="Update_EventMatchResult" FunctionName="ScoutingModel.Store.Update_EventMatchResult" />
+          <FunctionImportMapping FunctionImportName="Update_EventMatchScore2017" FunctionName="ScoutingModel.Store.Update_EventMatchScore2017" />
+          <FunctionImportMapping FunctionImportName="Update_EventMatchTeam" FunctionName="ScoutingModel.Store.Update_EventMatchTeam" />
+          <FunctionImportMapping FunctionImportName="Update_EventRanking" FunctionName="ScoutingModel.Store.Update_EventRanking" />
+          <FunctionImportMapping FunctionImportName="Update_Registration" FunctionName="ScoutingModel.Store.Update_Registration" />
+          <FunctionImportMapping FunctionImportName="Update_Team" FunctionName="ScoutingModel.Store.Update_Team" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

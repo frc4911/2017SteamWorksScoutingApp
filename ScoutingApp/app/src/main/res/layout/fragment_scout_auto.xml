@@ -1,0 +1,136 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#f9edb8"
+    android:fillViewport="true">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context="org.usfirst.frc.team4911.scouting.ScoutAutoFragment">
+
+        <!--Start of auto shot stuff-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/header_autonomous"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:layout_marginBottom="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ToggleButton
+                android:id="@+id/toggle_button_auto_crossed_baseline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textOn="Crossed Baseline [X]"
+                android:textOff="Crossed Baseline" />
+
+            <ToggleButton
+                android:id="@+id/toggle_button_auto_no_auto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:textOn="No Auto [X]"
+                android:textOff="No Auto"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/header_shot_attempt"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+            <CheckBox
+                android:id="@+id/checkbox_scout_auto_no_shots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                android:text="No Shot attempts" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/label_shots_attempted_auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+            android:text="@string/label_attempts_recorded"/>
+
+        <FrameLayout
+            android:id="@+id/fragment_container_auto_shooting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <!--End auto shot stuff-->
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+        <!-- Start auto gear stuff-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/header_gear_attempt"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+            <CheckBox
+                android:id="@+id/checkbox_scout_auto_no_gears"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                android:text="No Gear attempts" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/label_gears_attempted_auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+            android:text="@string/label_attempts_recorded"/>
+
+        <FrameLayout
+            android:id="@+id/fragment_container_auto_gear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <!--End auto gear stuff-->
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+         <Button
+            android:id="@+id/button_auto_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#32CD32"
+            android:text="@string/button_label_save_auto"/>
+    </LinearLayout>
+ </ScrollView>

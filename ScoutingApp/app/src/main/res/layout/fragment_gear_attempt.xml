@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="@dimen/activity_vertical_margin"
+    android:layout_marginRight="@dimen/activity_vertical_margin"
+    tools:context="org.usfirst.frc.team4911.scouting.GearAttemptFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ToggleButton
+            android:id="@+id/togglebutton_record_gear_success"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textOff="SUCCESS"
+            android:textOn="SUCCESS [X]"
+            android:layout_weight="1"/>
+
+        <ToggleButton
+            android:id="@+id/togglebutton_record_gear_fail"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textOff="FAILURE"
+            android:textOn="FAILURE [X]"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ToggleButton
+            android:id="@+id/togglebutton_record_gear_human_error"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textOff="PILOT ERROR"
+            android:textOn="PILOT ERROR [X]"
+            android:layout_weight="1"/>
+
+        <ToggleButton
+            android:id="@+id/togglebutton_record_gear_robot_error"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textOff="ROBOT ERROR"
+            android:textOn="ROBOT ERROR [X]"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_gear_record_save"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFD700"
+            android:layout_weight="1"
+            android:text="@string/button_label_save" />
+
+        <Button
+            android:id="@+id/btn_gear_record_clear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_label_clear" />
+    </LinearLayout>
+</LinearLayout>

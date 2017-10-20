@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_pit"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="org.usfirst.frc.team4911.scouting.PitActivity">
+
+    <TextView
+        android:id="@+id/PitHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="start"
+        android:text="@string/header_pit"
+        android:textSize="25sp" />
+
+    <org.usfirst.frc.team4911.scouting.ui.ExampleCustomView
+        android:id="@+id/example_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:defaultValue = "5"/>
+</LinearLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dd819ad6ceb849aeaf9800d37e28e361" Name="Diagram1" ZoomLevel="100">
+        <EntityTypeShape EntityType="ScoutingModel.District" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScoutingModel.EventMatchResult" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScoutingModel.EventMatchScores2017" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScoutingModel.EventMatchTeam" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScoutingModel.EventRanking" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScoutingModel.Event" Width="1.5" PointX="5.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScoutingModel.Registration" Width="1.5" PointX="7.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScoutingModel.ScoutDataHopperAttempt" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScoutingModel.ScoutingDataAutonomou" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScoutingModel.ScoutingDataEndGame" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScoutingModel.ScoutingDataFileLog" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScoutingModel.ScoutingDataGearAttempt" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScoutingModel.ScoutingDataMatch" Width="1.5" PointX="0.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScoutingModel.ScoutingDataPreGame" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScoutingModel.ScoutingDataQualitative" Width="1.5" PointX="3" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScoutingModel.ScoutingDataShotAttempt" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScoutingModel.ScoutingDataTeleop" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScoutingModel.Team" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="ScoutingModel.FK_ScoutDataHopperAttempts_To_ScoutingDataMatches" ManuallyRouted="false" />
+        <AssociationConnector Association="ScoutingModel.FK_ScoutingDataAutonomous_ScoutingDataMatches" ManuallyRouted="false" />
+        <AssociationConnector Association="ScoutingModel.FK_ScoutingDataEndGame_To_ScoutingDataMatches" ManuallyRouted="false" />
+        <AssociationConnector Association="ScoutingModel.FK_ScoutingDataGearAttempts_To_ScoutingDataMatches" ManuallyRouted="false" />
+        <AssociationConnector Association="ScoutingModel.FK_ScoutingDataPreGame_To_ScoutingDataMatches" ManuallyRouted="false" />
+        <AssociationConnector Association="ScoutingModel.FK_ScoutingDataQualitative_To_ScoutingDataMatches" ManuallyRouted="false" />
+        <AssociationConnector Association="ScoutingModel.FK_ScoutingDataShotAttempts_To_ScoutingDataMatches" ManuallyRouted="false" />
+        <AssociationConnector Association="ScoutingModel.FK_ScoutingDataTeleop_To_ScoutingDataMatches" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
