@@ -24,4 +24,4 @@ The [Microsoft EntityFramework](http://go.microsoft.com/fwlink/?LinkID=320540) i
 The [Z.EntityFramework.Extensions](http://entityframework-extensions.net/?z=nuget) for improved bulk save performance.  Please note that 
 this package must be updated every 30 days as the [trial period expires](http://entityframework-extensions.net/trial-period-expired-exception).
 
-To use the FRCEvents library, you must supply your registered username and authorization key. See [How to register for FRC Event API](http://docs.frcevents2.apiary.io/#reference/authorization/retrieve-event-alliance-selection) for more details.
+To use the FRCEvents library, you must supply your registered username and authorization key.  See [how to register for FRC Event API](http://docs.frcevents2.apiary.io/#reference/authorization/retrieve-event-alliance-selection) for more details.
